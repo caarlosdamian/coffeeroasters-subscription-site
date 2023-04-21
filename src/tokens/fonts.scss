@@ -1,4 +1,4 @@
-@use './mixings.scss';
+@use './mixings.scss' as mixin;
 
 $font-family-fraunces: 'Fraunces';
 $font-family-barlow: 'Barlow';
@@ -48,7 +48,7 @@ $letter-spacing-229167: -0.014rem;
 $letter-spacing-1-5: -0.094rem;
 
 .title {
-  @include font(
+  @include mixin.font(
     $font-size-150,
     $font-weight-900,
     $line-height-72,
@@ -57,7 +57,7 @@ $letter-spacing-1-5: -0.094rem;
 }
 
 .h1 {
-  @include font(
+  @include mixin.font(
     $font-size-72,
     $font-weight-900,
     $line-height-72,
@@ -66,7 +66,7 @@ $letter-spacing-1-5: -0.094rem;
 }
 
 .h2 {
-  @include font(
+  @include mixin.font(
     $font-size-48,
     $font-weight-900,
     $line-height-48,
@@ -75,7 +75,7 @@ $letter-spacing-1-5: -0.094rem;
 }
 
 .h3 {
-  @include font(
+  @include mixin.font(
     $font-size-32,
     $font-weight-900,
     $line-height-36,
@@ -84,7 +84,7 @@ $letter-spacing-1-5: -0.094rem;
 }
 
 .h4 {
-  @include font(
+  @include mixin.font(
     $font-size-24,
     $font-weight-900,
     $line-height-32,
@@ -93,7 +93,7 @@ $letter-spacing-1-5: -0.094rem;
 }
 
 .body {
-  @include font(
+  @include mixin.font(
     $font-size-16,
     $font-weight-400,
     $line-height-26,
@@ -102,7 +102,7 @@ $letter-spacing-1-5: -0.094rem;
 }
 
 .nav-text {
-  @include font(
+  @include mixin.font(
     $font-size-16,
     $font-weight-400,
     $line-height-26,
