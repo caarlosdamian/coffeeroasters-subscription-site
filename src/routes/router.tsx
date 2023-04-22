@@ -4,7 +4,15 @@ import {
   createRoutesFromElements,
 } from 'react-router-dom';
 import { App } from '../common/App';
+import { Home, About } from '../pages';
 
 export const router = createBrowserRouter(
-  createRoutesFromElements(<Route path="/" element={<App />}></Route>)
+  createRoutesFromElements(
+    <>
+      <Route path="/" element={<App />}>
+        <Route index element={<Home />} />
+        <Route path="/about" element={<About />} />
+      </Route>
+    </>
+  )
 );
