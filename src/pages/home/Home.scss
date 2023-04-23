@@ -88,4 +88,74 @@
       }
     }
   }
+  .collection {
+    margin-top: 120px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 14px;
+    padding: 0 24px;
+    &__title {
+      text-align: center;
+      color: #83888f;
+      @include tokens.font(
+        tokens.$font-size-40,
+        tokens.$font-weight-900,
+        tokens.$line-height-72,
+        tokens.$font-family-fraunces-9
+      );
+      &::before {
+        background: linear-gradient(
+          180deg,
+          rgba(254, 252, 247, 0.0001) 0%,
+          #fefcf7 100%
+        );
+        width: 325px;
+        height: 72px;
+        position: absolute;
+        content: '';
+      }
+    }
+    &__grid {
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      gap: 48px;
+
+      .collection__item {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        gap: 16px;
+
+        &--img {
+          width: 200px;
+          height: 151px;
+          object-fit: cover;
+        }
+        &--title {
+          text-align: center;
+          color: tokens.$dark-grey-blue;
+          @include tokens.font(
+            tokens.$font-size-24,
+            tokens.$font-weight-900,
+            tokens.$line-height-32,
+            tokens.$font-family-fraunces-9
+          );
+        }
+        &--desc {
+          text-align: center;
+          color: tokens.$dark-grey-blue;
+          max-width: 282px;
+          @include tokens.font(
+            tokens.$font-size-15,
+            tokens.$font-weight-400,
+            tokens.$line-height-25,
+            tokens.$font-family-barlow
+          );
+        }
+      }
+    }
+  }
 }
