@@ -1,3 +1,4 @@
+@use '../../tokens/index.scss' as tokens;
 .menu {
   min-width: 100vw;
   min-height: 100vh;
@@ -17,6 +18,9 @@
     #fefcf7 55.94%
   );
 
+  @include tokens.for-size(tablet-portrait-up) {
+    display: none;
+  }
   &__item {
     font-family: 'Fraunces 9pt';
     font-style: normal;

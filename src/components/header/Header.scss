@@ -1,3 +1,5 @@
+@use '../../tokens/index.scss' as tokens;
+
 .header {
   background: #fefcf7;
   display: flex;
@@ -6,14 +8,52 @@
   padding: 32px 24px;
   position: relative;
 
+  @include tokens.for-size(tablet-portrait-up) {
+    padding: 46px 42px;
+  }
+  @include tokens.for-size(desktop-up) {
+    padding: 50px 82px;
+  }
+
   &__logo {
     img {
       width: 163px;
       height: 18px;
       object-fit: contain;
+      @include tokens.for-size(tablet-portrait-up) {
+        width: 236px;
+        height: 26px;
+      }
     }
   }
   &__menu {
+    &--desktop {
+      display: none;
+    }
+    @include tokens.for-size(tablet-portrait-up) {
+      display: none;
+      &--desktop {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 32px;
+        span {
+          font-family: 'Barlow';
+          font-style: normal;
+          font-weight: 700;
+          font-size: 12px;
+          line-height: 15px;
+          letter-spacing: 0.923077px;
+          text-transform: uppercase;
+          color: #83888f;
+          cursor: pointer;
+          &:hover {
+            color: #333d4b;
+          }
+        }
+      }
+    }
+
     img {
       width: 16px;
       height: 15px;
