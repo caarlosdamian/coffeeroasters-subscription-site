@@ -1,6 +1,48 @@
+@use '../../tokens/index.scss' as tokens;
+
 .home {
-  background: #fefcf7;
-  z-index: 1;
-  position: relative;
+  background: tokens.$light-cream;
   min-height: 100vh;
+  padding: 0 tokens.$padding-spaicing-24;
+  position: relative;
+  z-index: 1;
+
+  .hero {
+    align-items: center;
+    background-image: url('../../assets/home/mobile/image-hero-coffeepress.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: tokens.$spacing-24;
+    height: 500px;
+    justify-content: center;
+    padding: tokens.$padding-spaicing-24;
+    width: 327px;
+
+    &__title {
+      color: #fefcf7;
+      text-align: center;
+      @include tokens.font(
+        tokens.$font-size-40,
+        tokens.$font-weight-900,
+        tokens.$line-height-40,
+        tokens.$font-family-fraunces-9
+      );
+    }
+    &__subtitle {
+      color: #fefcf7;
+      margin-bottom: 15px;
+      mix-blend-mode: normal;
+      opacity: 0.8;
+      text-align: center;
+      @include tokens.font(
+        tokens.$font-size-15,
+        tokens.$font-weight-400,
+        tokens.$line-height-25,
+        tokens.$font-family-barlow
+      );
+    }
+  }
 }
