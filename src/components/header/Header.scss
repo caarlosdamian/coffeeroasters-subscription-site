@@ -1,0 +1,24 @@
+.header {
+  background: #fefcf7;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 32px 24px;
+  position: relative;
+
+  &__logo {
+    img {
+      width: 163px;
+      height: 18px;
+      object-fit: contain;
+    }
+  }
+  &__menu {
+    img {
+      width: 16px;
+      height: 15px;
+      object-fit: contain;
+      cursor: pointer;
+    }
+  }
+}
