@@ -6,6 +6,15 @@
   padding: 0 tokens.$padding-spaicing-24;
   position: relative;
   z-index: 1;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  @include tokens.for-size(tablet-portrait-up) {
+    padding: 0 tokens.$padding-spaicing-40;
+  }
+  @include tokens.for-size(desktop-up) {
+    padding: 0 tokens.$padding-spaicing-80;
+  }
 
   .hero {
     align-items: center;
@@ -20,6 +29,20 @@
     justify-content: center;
     padding: tokens.$padding-spaicing-24;
     width: 327px;
+    @include tokens.for-size(tablet-portrait-up) {
+      background-image: url('../../assets/home/tablet/image-hero-coffeepress.jpg');
+      width: 689px;
+      height: 500px;
+      align-items: flex-start;
+      padding: tokens.$padding-spaicing-56;
+    }
+    @include tokens.for-size(desktop-up) {
+      background-image: url('../../assets/home/desktop/image-hero-coffeepress.jpg');
+      width: 1280px;
+      height: 600px;
+      align-items: flex-start;
+      padding: tokens.$padding-spaicing-84;
+    }
 
     &__title {
       color: #fefcf7;
@@ -30,6 +53,17 @@
         tokens.$line-height-40,
         tokens.$font-family-fraunces-9
       );
+      @include tokens.for-size(tablet-portrait-up) {
+        text-align: start;
+        max-width: 329px;
+        font-size: tokens.$font-size-48;
+        line-height: tokens.$line-height-48;
+      }
+      @include tokens.for-size(desktop-up) {
+        max-width: 493px;
+        font-size: tokens.$font-size-72;
+        line-height: tokens.$line-height-72;
+      }
     }
     &__subtitle {
       color: #fefcf7;
@@ -43,6 +77,15 @@
         tokens.$line-height-25,
         tokens.$font-family-barlow
       );
+      @include tokens.for-size(tablet-portrait-up) {
+        text-align: start;
+        max-width: 398px;
+      }
+      @include tokens.for-size(desktop-up) {
+        max-width: 493px;
+        font-size: tokens.$font-size-16;
+        line-height: tokens.$line-height-26;
+      }
     }
   }
 }

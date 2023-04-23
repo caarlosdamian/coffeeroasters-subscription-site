@@ -1,18 +1,21 @@
 @use '../../tokens/index.scss' as tokens;
 
 .header {
-  background: #fefcf7;
+  background: tokens.$light-cream;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 32px 24px;
+  padding: tokens.$padding-spaicing-32 0;
+  width: 327px;
   position: relative;
 
   @include tokens.for-size(tablet-portrait-up) {
-    padding: 46px 42px;
+    padding: tokens.$padding-spaicing-46 0;
+    width: 689px;
   }
   @include tokens.for-size(desktop-up) {
-    padding: 50px 82px;
+    padding: tokens.$padding-spaicing-50 0;
+    width: 1280px;
   }
 
   &__logo {
@@ -38,15 +41,16 @@
         justify-content: center;
         gap: 32px;
         span {
-          font-family: 'Barlow';
-          font-style: normal;
-          font-weight: 700;
-          font-size: 12px;
-          line-height: 15px;
           letter-spacing: 0.923077px;
           text-transform: uppercase;
-          color: #83888f;
+          color: tokens.$grey;
           cursor: pointer;
+          @include tokens.font(
+            tokens.$font-size-12,
+            tokens.$font-weight-700,
+            tokens.$line-height-15,
+            tokens.$font-family-barlow
+          );
           &:hover {
             color: #333d4b;
           }
