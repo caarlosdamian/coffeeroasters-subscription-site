@@ -98,6 +98,7 @@
   }
   .collection {
     margin-top: 120px;
+    margin-bottom: 120px;
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -107,10 +108,12 @@
     @include tokens.for-size(tablet-portrait-up) {
       position: relative;
       margin-top: 200px;
+      margin-bottom: 144px;
     }
 
     @include tokens.for-size(desktop-up) {
       margin-top: 242px;
+      margin-bottom: 200px;
     }
 
     &__title {
@@ -141,6 +144,8 @@
         @include tokens.for-size(desktop-up) {
           height: 196px;
           width: 1111px;
+          left: 0;
+          top: 0;
           background: linear-gradient(
             180deg,
             rgba(254, 252, 247, 0.0001) 0%,
@@ -158,7 +163,7 @@
         margin: auto;
         top: -48px;
         width: 580px;
-        // letter-spacing: px;
+        height: 196px;
       }
 
       @include tokens.for-size(desktop-up) {
@@ -201,11 +206,6 @@
           width: 200px;
           height: 151px;
           object-fit: cover;
-
-          // @include tokens.for-size(desktop-up) {
-          //   width: 255px;
-          //   height: 193px;
-          // }
         }
         .collection__info {
           display: flex;
@@ -237,6 +237,181 @@
               tokens.$line-height-25,
               tokens.$font-family-barlow
             );
+          }
+        }
+      }
+    }
+  }
+  .features {
+    padding: 0 24px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-bottom: 120px;
+    min-height: 1499px;
+
+    @include tokens.for-size(tablet-portrait-up) {
+      min-height: 863px;
+      padding: 0 40px;
+    }
+
+    @include tokens.for-size(desktop-up) {
+      min-height: 768px;
+      padding: 0 80px;
+    }
+
+    &__container {
+      width: 327px;
+      height: 902px;
+      background: #2c343e;
+      border-radius: 10px;
+      padding: 64px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      flex-direction: column;
+      position: relative;
+      @include tokens.for-size(tablet-portrait-up) {
+        width: 688px;
+        height: 573px;
+      }
+      @include tokens.for-size(desktop-up) {
+        width: 1280px;
+        height: 577px;
+      }
+      &--info {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        gap: 24px;
+        .title {
+          text-align: center;
+          color: #fefcf7;
+          @include tokens.font(
+            tokens.$font-size-28,
+            tokens.$font-weight-900,
+            tokens.$line-height-28,
+            tokens.$font-family-fraunces-9
+          );
+          @include tokens.for-size(tablet-portrait-up) {
+            font-size: 32px;
+            line-height: 48px;
+          }
+          @include tokens.for-size(desktop-up) {
+            font-size: 40px;
+          }
+        }
+        .subtitle {
+          color: #fefcf7;
+          mix-blend-mode: normal;
+          opacity: 0.8;
+          text-align: center;
+          @include tokens.font(
+            tokens.$font-size-15,
+            tokens.$font-weight-400,
+            tokens.$line-height-25,
+            tokens.$font-family-barlow
+          );
+          @include tokens.for-size(tablet-portrait-up) {
+            max-width: 540px;
+          }
+        }
+      }
+      &--grid {
+        position: absolute;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        gap: 24px;
+        top: 305px;
+        @include tokens.for-size(tablet-portrait-up) {
+          top: 275px;
+        }
+        @include tokens.for-size(desktop-up) {
+          top: 346px;
+          flex-direction: row;
+        }
+
+        .feature__wrapper {
+          background: #0e8784;
+          border-radius: 8px;
+          width: 279px;
+          height: 382px;
+          padding: 12px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          flex-direction: column;
+          gap: 56px;
+          @include tokens.for-size(tablet-portrait-up) {
+            width: 573px;
+            height: 180px;
+            flex-direction: row;
+            padding: 42px 48px 42px 70px;
+          }
+          @include tokens.for-size(desktop-up) {
+            width: 350px;
+            height: 382px;
+            flex-direction: column;
+            padding: 48px;
+          }
+          img {
+            width: 72px;
+            height: 72px;
+            object-fit: cover;
+            @include tokens.for-size(tablet-portrait-up) {
+              width: 55px;
+              height: 55px;
+            }
+            @include tokens.for-size(desktop-up) {
+              width: 72px;
+              height: 72px;
+            }
+          }
+          .feature__info {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            gap: 24px;
+            @include tokens.for-size(tablet-portrait-up) {
+              align-items: flex-start;
+            }
+            @include tokens.for-size(desktop-up) {
+              align-items: center;
+            }
+            .title {
+              text-align: center;
+              color: #fefcf7;
+              @include tokens.font(
+                tokens.$font-size-24,
+                tokens.$font-weight-900,
+                tokens.$line-height-32,
+                tokens.$font-family-fraunces-9
+              );
+              @include tokens.for-size(tablet-portrait-up) {
+                text-align: start;
+              }
+              @include tokens.for-size(desktop-up) {
+                text-align: center;
+              }
+            }
+            .subtitle {
+              text-align: center;
+              color: #fefcf7;
+              @include tokens.font(
+                tokens.$font-size-16,
+                tokens.$font-weight-400,
+                tokens.$line-height-26,
+                tokens.$font-family-barlow
+              );
+              @include tokens.for-size(tablet-portrait-up) {
+                text-align: start;
+              }
+              @include tokens.for-size(desktop-up) {
+                text-align: center;
+              }
+            }
           }
         }
       }

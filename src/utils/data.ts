@@ -1,4 +1,12 @@
-import { danche, espresso, picollo, planalto } from '../assets';
+import {
+  coffeBean,
+  danche,
+  espresso,
+  gift,
+  picollo,
+  planalto,
+  truck,
+} from '../assets';
 import { HomeCoffes, MenuLinks } from './types';
 
 export const menuLinks: MenuLinks[] = [
@@ -43,5 +51,26 @@ export const homeCoffes: HomeCoffes[] = [
     title: 'Danche',
     desc: 'Ethiopian hand-harvested blend densely packed with vibrant fruit notes',
     img: danche,
+  },
+];
+
+export const featureInfo: HomeCoffes[] = [
+  {
+    id: 'b24',
+    title: 'Best quality',
+    desc: 'Discover an endless variety of the world’s best artisan coffee from each of our roasters.',
+    img: coffeBean,
+  },
+  {
+    id: 'b25',
+    title: 'Exclusive benefits',
+    desc: 'Special offers and swag when you subscribe, including 30% off your first shipment.',
+    img: gift,
+  },
+  {
+    id: 'b26',
+    title: 'Free shipping',
+    desc: 'We cover the cost and coffee is delivered fast. Peak freshness: guaranteed.',
+    img: truck,
   },
 ];
