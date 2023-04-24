@@ -4,21 +4,39 @@
   width: 327px;
   height: 346px;
   background: #2c343e;
-  margin-bottom: 72px;
-  padding: 54px;
+  margin-bottom: tokens.$spacing-72;
+  padding: tokens.$padding-spaicing-56;
   display: flex;
   flex-direction: column;
-  gap: 48px;
+  gap: tokens.$spacing-48;
+
+  @include tokens.for-size(tablet-portrait-up) {
+    width: 688px;
+    height: 270px;
+    align-items: center;
+    gap: tokens.$spacing-32;
+  }
+
+  @include tokens.for-size(desktop-up) {
+    flex-direction: row;
+    width: 1280px;
+    height: 120px;
+    justify-content: space-between;
+    padding: tokens.$padding-spaicing-48 tokens.$padding-spaicing-84;
+    margin-bottom: tokens.$padding-spaicing-80;
+  }
   &__navigation {
     display: flex;
     align-items: center;
     flex-direction: column;
-    gap: 24px;
+    gap: tokens.$spacing-24;
+    @include tokens.for-size(tablet-portrait-up) {
+      flex-direction: row;
+    }
     span {
       letter-spacing: 0.923077px;
       text-transform: uppercase;
-
-      color: #83888f;
+      color: tokens.$grey;
       @include tokens.font(
         tokens.$font-size-12,
         tokens.$font-weight-700,
@@ -31,12 +49,12 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 24px;
+    gap: tokens.$spacing-24;
     svg,
     path {
       cursor: pointer;
       &:hover {
-        fill: #fdd6ba;
+        fill: tokens.$pale-orange;
       }
     }
   }

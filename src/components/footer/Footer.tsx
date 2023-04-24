@@ -1,8 +1,8 @@
 import React from 'react';
-import './Footer.scss';
-import { logo, logoFooter } from '../../assets';
+import { logoFooter } from '../../assets';
 import { menuLinks } from '../../utils/data';
 import { Link } from 'react-router-dom';
+import './Footer.scss';
 
 export const Footer = () => {
   return (
