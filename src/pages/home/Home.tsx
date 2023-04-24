@@ -4,6 +4,8 @@ import { Button } from '../../components/button/Button';
 import { featureInfo, homeCoffes, worksSteps } from '../../utils/data';
 import { HomeCoffes, StepsWorks } from '../../utils/types';
 import './Home.scss';
+import { Link } from 'react-router-dom';
+import { Steps } from '../../components/steps/Steps';
 
 export const Home = () => {
   return (
@@ -67,19 +69,10 @@ export const Home = () => {
         <div className="works__title">
           <span className="title">How it works</span>
         </div>
-        <div className="works__line"></div>
-        <div className="works__grid">
-          {worksSteps.map((step: StepsWorks) => (
-            <Fade triggerOnce key={step.id}>
-              <div className="step__container">
-                <span className="step__container--number">{step.id}</span>
-                <span className="step__container--title">{step.title}</span>
-                <span className="step__container--desc">{step.desc}</span>
-              </div>
-            </Fade>
-          ))}
-        </div>
-        <Button label="Create your plan" />
+        <Steps />
+        <Link to="/plan" className="links">
+          <Button label="Create your plan" />
+        </Link>
       </div>
     </div>
   );

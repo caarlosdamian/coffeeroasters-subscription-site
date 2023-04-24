@@ -1,0 +1,112 @@
+@use '../../tokens/index.scss' as tokens;
+
+.steps {
+  display: flex;
+  flex-direction: column;
+
+  @include tokens.for-size(tablet-portrait-up) {
+    gap: 48px;
+  }
+  @include tokens.for-size(desktop-up) {
+    gap: 68px;
+  }
+  &__line {
+    display: none;
+    @include tokens.for-size(tablet-portrait-up) {
+      display: block;
+      width: 497px;
+      border: 2px solid #fdd6ba;
+      position: relative;
+    }
+    @include tokens.for-size(desktop-up) {
+      width: 650px;
+    }
+    .dot {
+      height: 31px;
+      width: 31px;
+      border-radius: 50%;
+      border: 2px solid #0e8784;
+      position: absolute;
+      background: #fefcf7;
+    }
+    #dot1 {
+      left: -4px;
+      top: -15px;
+    }
+    #dot2 {
+      left: 50%;
+      top: -15px;
+    }
+    #dot3 {
+      left: 100%;
+      top: -15px;
+    }
+  }
+  &__grid {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: tokens.$spacing-56;
+    @include tokens.for-size(tablet-portrait-up) {
+      flex-direction: row;
+    }
+    @include tokens.for-size(desktop-up) {
+      gap: tokens.$spacing-95;
+    }
+
+    .step__container {
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      gap: tokens.$spacing-24;
+      @include tokens.for-size(tablet-portrait-up) {
+        min-height: 371px;
+        align-items: flex-start;
+        gap: tokens.$spacing-42;
+        // justify-content: flex-start;
+      }
+      &--number {
+        text-align: center;
+        color: tokens.$pale-orange;
+        @include tokens.font(
+          tokens.$font-size-72,
+          tokens.$font-weight-900,
+          tokens.$line-height-72,
+          tokens.$font-family-fraunces-9
+        );
+      }
+      &--title {
+        text-align: center;
+        color: tokens.$dark-grey-blue;
+        @include tokens.font(
+          tokens.$font-size-28,
+          tokens.$font-weight-900,
+          tokens.$line-height-32,
+          tokens.$font-family-fraunces-9
+        );
+        @include tokens.for-size(tablet-portrait-up) {
+          text-align: start;
+          max-width: 150px;
+        }
+        @include tokens.for-size(desktop-up) {
+          font-size: tokens.$font-size-32;
+          line-height: tokens.$line-height-36;
+        }
+      }
+      &--desc {
+        text-align: center;
+        color: tokens.$dark-grey-blue;
+        @include tokens.font(
+          tokens.$font-size-15,
+          tokens.$font-weight-400,
+          tokens.$line-height-25,
+          tokens.$font-family-barlow
+        );
+        @include tokens.for-size(tablet-portrait-up) {
+          text-align: start;
+          max-width: 220px;
+        }
+      }
+    }
+  }
+}

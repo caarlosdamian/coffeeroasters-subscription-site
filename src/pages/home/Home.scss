@@ -162,7 +162,7 @@
         right: 0;
         margin: auto;
         top: -48px;
-        width: 580px;
+        width: 660px;
         height: 196px;
       }
 
@@ -347,7 +347,8 @@
             width: 573px;
             height: 180px;
             flex-direction: row;
-            padding: tokens.$padding-spaicing-42 tokens.$padding-spaicing-48 tokens.$padding-spaicing-42 70px;
+            padding: tokens.$padding-spaicing-42 tokens.$padding-spaicing-48
+              tokens.$padding-spaicing-42 70px;
           }
           @include tokens.for-size(desktop-up) {
             width: 350px;
@@ -425,7 +426,18 @@
     gap: 80px;
     margin-bottom: 120px;
 
+    @include tokens.for-size(tablet-portrait-up) {
+      padding: 0 tokens.$padding-spaicing-40;
+      align-items: flex-start;
+    }
+    @include tokens.for-size(desktop-up) {
+      padding: 0 tokens.$padding-spaicing-164;
+    }
+
     &__title {
+      @include tokens.for-size(tablet-portrait-up) {
+        align-self: flex-start;
+      }
       .title {
         text-align: center;
         color: #83888f;
@@ -435,53 +447,13 @@
           tokens.$line-height-32,
           tokens.$font-family-fraunces-9
         );
+        @include tokens.for-size(tablet-portrait-up) {
+          text-align: start;
+        }
       }
     }
-    &__line {
-      display: none;
-    }
-    &__grid {
-      display: flex;
-      align-items: center;
-      flex-direction: column;
-      gap: tokens.$spacing-56;
+    //
 
-      .step__container {
-        display: flex;
-        align-items: center;
-        flex-direction: column;
-        gap: tokens.$spacing-24;
-        &--number {
-          text-align: center;
-          color: tokens.$pale-orange;
-          @include tokens.font(
-            tokens.$font-size-72,
-            tokens.$font-weight-900,
-            tokens.$line-height-72,
-            tokens.$font-family-fraunces-9
-          );
-        }
-        &--title {
-          text-align: center;
-          color: tokens.$dark-grey-blue;
-          @include tokens.font(
-            tokens.$font-size-28,
-            tokens.$font-weight-900,
-            tokens.$line-height-32,
-            tokens.$font-family-fraunces-9
-          );
-        }
-        &--desc {
-          text-align: center;
-          color: tokens.$dark-grey-blue;
-          @include tokens.font(
-            tokens.$font-size-15,
-            tokens.$font-weight-400,
-            tokens.$line-height-25,
-            tokens.$font-family-barlow
-          );
-        }
-      }
-    }
+    //
   }
 }
