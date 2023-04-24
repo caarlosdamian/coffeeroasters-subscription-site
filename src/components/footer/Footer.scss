@@ -1,0 +1,43 @@
+@use '../../tokens/index.scss' as tokens;
+
+.footer {
+  width: 327px;
+  height: 346px;
+  background: #2c343e;
+  margin-bottom: 72px;
+  padding: 54px;
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+  &__navigation {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 24px;
+    span {
+      letter-spacing: 0.923077px;
+      text-transform: uppercase;
+
+      color: #83888f;
+      @include tokens.font(
+        tokens.$font-size-12,
+        tokens.$font-weight-700,
+        tokens.$line-height-15,
+        tokens.$font-family-barlow
+      );
+    }
+  }
+  &__socials {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+    svg,
+    path {
+      cursor: pointer;
+      &:hover {
+        fill: #fdd6ba;
+      }
+    }
+  }
+}

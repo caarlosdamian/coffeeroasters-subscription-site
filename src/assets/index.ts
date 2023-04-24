@@ -1,4 +1,5 @@
 import logo from './shared/desktop/logo.svg';
+import logoFooter from './shared/desktop/logo-footer.svg';
 import hamburger from './shared/mobile/icon-hamburger.svg';
 import close from './shared/mobile/icon-close.svg';
 import danche from './home/desktop/image-danche.png';
@@ -20,4 +21,5 @@ export {
   coffeBean,
   gift,
   truck,
+  logoFooter
 };
