@@ -49,7 +49,7 @@
     }
 
     &__title {
-      color: #fefcf7;
+      color: tokens.$light-cream;
       text-align: center;
       @include tokens.font(
         tokens.$font-size-40,
@@ -72,7 +72,7 @@
       }
     }
     &__subtitle {
-      color: #fefcf7;
+      color: tokens.$light-cream;
       margin-bottom: 15px;
       mix-blend-mode: normal;
       opacity: 0.8;
@@ -129,7 +129,7 @@
         background: linear-gradient(
           180deg,
           rgba(254, 252, 247, 0.0001) 0%,
-          #fefcf7 100%
+          tokens.$light-cream 100%
         );
         width: 325px;
         height: 72px;
@@ -149,7 +149,7 @@
           background: linear-gradient(
             180deg,
             rgba(254, 252, 247, 0.0001) 0%,
-            #fefcf7 100%
+            tokens.$light-cream 100%
           );
         }
       }
@@ -243,7 +243,7 @@
     }
   }
   .features {
-    padding: 0 24px;
+    padding: 0 tokens.$padding-spaicing-24;
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -264,8 +264,8 @@
       width: 327px;
       height: 902px;
       background: #2c343e;
-      border-radius: 10px;
-      padding: 64px 24px;
+      border-radius: tokens.$border-radius-10;
+      padding: tokens.$padding-spaicing-64 tokens.$padding-spaicing-24;
       display: flex;
       align-items: center;
       justify-content: flex-start;
@@ -286,7 +286,7 @@
         gap: 24px;
         .title {
           text-align: center;
-          color: #fefcf7;
+          color: tokens.$light-cream;
           @include tokens.font(
             tokens.$font-size-28,
             tokens.$font-weight-900,
@@ -294,15 +294,15 @@
             tokens.$font-family-fraunces-9
           );
           @include tokens.for-size(tablet-portrait-up) {
-            font-size: 32px;
-            line-height: 48px;
+            font-size: tokens.$font-size-32;
+            line-height: tokens.$line-height-48;
           }
           @include tokens.for-size(desktop-up) {
-            font-size: 40px;
+            font-size: tokens.$font-size-40;
           }
         }
         .subtitle {
-          color: #fefcf7;
+          color: tokens.$light-cream;
           mix-blend-mode: normal;
           opacity: 0.8;
           text-align: center;
@@ -322,7 +322,7 @@
         display: flex;
         align-items: center;
         flex-direction: column;
-        gap: 24px;
+        gap: tokens.$spacing-24;
         top: 305px;
         @include tokens.for-size(tablet-portrait-up) {
           top: 275px;
@@ -333,27 +333,27 @@
         }
 
         .feature__wrapper {
-          background: #0e8784;
-          border-radius: 8px;
+          background: tokens.$dark-cyan;
+          border-radius: tokens.$border-radius-8;
           width: 279px;
           height: 382px;
-          padding: 12px;
+          padding: tokens.$padding-spaicing-12;
           display: flex;
           align-items: center;
           justify-content: center;
           flex-direction: column;
-          gap: 56px;
+          gap: tokens.$spacing-56;
           @include tokens.for-size(tablet-portrait-up) {
             width: 573px;
             height: 180px;
             flex-direction: row;
-            padding: 42px 48px 42px 70px;
+            padding: tokens.$padding-spaicing-42 tokens.$padding-spaicing-48 tokens.$padding-spaicing-42 70px;
           }
           @include tokens.for-size(desktop-up) {
             width: 350px;
             height: 382px;
             flex-direction: column;
-            padding: 48px;
+            padding: tokens.$padding-spaicing-48;
           }
           img {
             width: 72px;
@@ -373,7 +373,7 @@
             align-items: center;
             justify-content: center;
             flex-direction: column;
-            gap: 24px;
+            gap: tokens.$spacing-24;
             @include tokens.for-size(tablet-portrait-up) {
               align-items: flex-start;
             }
@@ -382,7 +382,7 @@
             }
             .title {
               text-align: center;
-              color: #fefcf7;
+              color: tokens.$light-cream;
               @include tokens.font(
                 tokens.$font-size-24,
                 tokens.$font-weight-900,
@@ -398,7 +398,7 @@
             }
             .subtitle {
               text-align: center;
-              color: #fefcf7;
+              color: tokens.$light-cream;
               @include tokens.font(
                 tokens.$font-size-16,
                 tokens.$font-weight-400,
@@ -413,6 +413,73 @@
               }
             }
           }
+        }
+      }
+    }
+  }
+  .works {
+    padding: 0 tokens.$padding-spaicing-24;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 80px;
+    margin-bottom: 120px;
+
+    &__title {
+      .title {
+        text-align: center;
+        color: #83888f;
+        @include tokens.font(
+          tokens.$font-size-24,
+          tokens.$font-weight-900,
+          tokens.$line-height-32,
+          tokens.$font-family-fraunces-9
+        );
+      }
+    }
+    &__line {
+      display: none;
+    }
+    &__grid {
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      gap: tokens.$spacing-56;
+
+      .step__container {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        gap: tokens.$spacing-24;
+        &--number {
+          text-align: center;
+          color: tokens.$pale-orange;
+          @include tokens.font(
+            tokens.$font-size-72,
+            tokens.$font-weight-900,
+            tokens.$line-height-72,
+            tokens.$font-family-fraunces-9
+          );
+        }
+        &--title {
+          text-align: center;
+          color: tokens.$dark-grey-blue;
+          @include tokens.font(
+            tokens.$font-size-28,
+            tokens.$font-weight-900,
+            tokens.$line-height-32,
+            tokens.$font-family-fraunces-9
+          );
+        }
+        &--desc {
+          text-align: center;
+          color: tokens.$dark-grey-blue;
+          @include tokens.font(
+            tokens.$font-size-15,
+            tokens.$font-weight-400,
+            tokens.$line-height-25,
+            tokens.$font-family-barlow
+          );
         }
       }
     }

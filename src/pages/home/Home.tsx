@@ -1,8 +1,8 @@
 import React from 'react';
 import { Fade } from 'react-awesome-reveal';
 import { Button } from '../../components/button/Button';
-import { featureInfo, homeCoffes } from '../../utils/data';
-import { HomeCoffes } from '../../utils/types';
+import { featureInfo, homeCoffes, worksSteps } from '../../utils/data';
+import { HomeCoffes, StepsWorks } from '../../utils/types';
 import './Home.scss';
 
 export const Home = () => {
@@ -63,7 +63,24 @@ export const Home = () => {
           </div>
         </div>
       </div>
-      <div className="works">works</div>
+      <div className="works">
+        <div className="works__title">
+          <span className="title">How it works</span>
+        </div>
+        <div className="works__line"></div>
+        <div className="works__grid">
+          {worksSteps.map((step: StepsWorks) => (
+            <Fade triggerOnce key={step.id}>
+              <div className="step__container">
+                <span className="step__container--number">{step.id}</span>
+                <span className="step__container--title">{step.title}</span>
+                <span className="step__container--desc">{step.desc}</span>
+              </div>
+            </Fade>
+          ))}
+        </div>
+        <Button label="Create your plan" />
+      </div>
     </div>
   );
 };

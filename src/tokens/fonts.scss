@@ -1,7 +1,22 @@
 @use './mixings.scss' as mixin;
 
+@font-face {
+  font-family: 'Fraunces 9pt S000';
+  src: url('//db.onlinewebfonts.com/t/0d8a84b6469ac5c35080e74490ea21c9.eot');
+  src: url('//db.onlinewebfonts.com/t/0d8a84b6469ac5c35080e74490ea21c9.eot?#iefix')
+      format('embedded-opentype'),
+    url('//db.onlinewebfonts.com/t/0d8a84b6469ac5c35080e74490ea21c9.woff2')
+      format('woff2'),
+    url('//db.onlinewebfonts.com/t/0d8a84b6469ac5c35080e74490ea21c9.woff')
+      format('woff'),
+    url('//db.onlinewebfonts.com/t/0d8a84b6469ac5c35080e74490ea21c9.ttf')
+      format('truetype'),
+    url('//db.onlinewebfonts.com/t/0d8a84b6469ac5c35080e74490ea21c9.svg#Fraunces 9pt S000')
+      format('svg');
+}
+
 $font-family-fraunces: 'Fraunces';
-$font-family-fraunces-9: 'Fraunces 9pt';
+$font-family-fraunces-9: 'Fraunces 9pt S000';
 $font-family-barlow: 'Barlow';
 
 $font-weight-900: 900;

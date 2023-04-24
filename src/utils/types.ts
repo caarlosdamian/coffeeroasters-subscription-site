@@ -10,3 +10,9 @@ export interface MenuLinks {
   label: string;
   path: string;
 }
+
+export interface StepsWorks {
+  id: string;
+  title: string;
+  desc: string;
+}
