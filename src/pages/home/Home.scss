@@ -9,9 +9,11 @@
   display: flex;
   align-items: center;
   flex-direction: column;
+
   @include tokens.for-size(tablet-portrait-up) {
     padding: 0 tokens.$padding-spaicing-40;
   }
+
   @include tokens.for-size(desktop-up) {
     padding: 0 tokens.$padding-spaicing-80;
   }
@@ -29,6 +31,7 @@
     justify-content: center;
     padding: tokens.$padding-spaicing-24;
     width: 327px;
+
     @include tokens.for-size(tablet-portrait-up) {
       background-image: url('../../assets/home/tablet/image-hero-coffeepress.jpg');
       width: 689px;
@@ -36,6 +39,7 @@
       align-items: flex-start;
       padding: tokens.$padding-spaicing-56;
     }
+
     @include tokens.for-size(desktop-up) {
       background-image: url('../../assets/home/desktop/image-hero-coffeepress.jpg');
       width: 1280px;
@@ -53,12 +57,14 @@
         tokens.$line-height-40,
         tokens.$font-family-fraunces-9
       );
+
       @include tokens.for-size(tablet-portrait-up) {
         text-align: start;
         max-width: 329px;
         font-size: tokens.$font-size-48;
         line-height: tokens.$line-height-48;
       }
+
       @include tokens.for-size(desktop-up) {
         max-width: 493px;
         font-size: tokens.$font-size-72;
@@ -77,10 +83,12 @@
         tokens.$line-height-25,
         tokens.$font-family-barlow
       );
+
       @include tokens.for-size(tablet-portrait-up) {
         text-align: start;
         max-width: 398px;
       }
+
       @include tokens.for-size(desktop-up) {
         max-width: 493px;
         font-size: tokens.$font-size-16;
@@ -93,11 +101,21 @@
     display: flex;
     align-items: center;
     flex-direction: column;
-    gap: 14px;
-    padding: 0 24px;
+    gap: tokens.$spacing-15;
+    padding: 0 tokens.$padding-spaicing-24;
+
+    @include tokens.for-size(tablet-portrait-up) {
+      position: relative;
+      margin-top: 200px;
+    }
+
+    @include tokens.for-size(desktop-up) {
+      margin-top: 242px;
+    }
+
     &__title {
       text-align: center;
-      color: #83888f;
+      color: tokens.$grey;
       @include tokens.font(
         tokens.$font-size-40,
         tokens.$font-weight-900,
@@ -114,46 +132,112 @@
         height: 72px;
         position: absolute;
         content: '';
+
+        @include tokens.for-size(tablet-portrait-up) {
+          width: 686px;
+          height: 72px;
+        }
+
+        @include tokens.for-size(desktop-up) {
+          height: 196px;
+          width: 1111px;
+          background: linear-gradient(
+            180deg,
+            rgba(254, 252, 247, 0.0001) 0%,
+            #fefcf7 100%
+          );
+        }
+      }
+
+      @include tokens.for-size(tablet-portrait-up) {
+        position: absolute;
+        font-size: tokens.$font-size-96;
+        line-height: tokens.$line-height-72;
+        left: -52px;
+        right: 0;
+        margin: auto;
+        top: -48px;
+        width: 580px;
+        // letter-spacing: px;
+      }
+
+      @include tokens.for-size(desktop-up) {
+        font-size: tokens.$font-size-150;
+        min-width: 1111px;
+        mix-blend-mode: normal;
+        opacity: 0.5;
+        top: -72px;
       }
     }
     &__grid {
       display: flex;
       align-items: center;
       flex-direction: column;
-      gap: 48px;
+      gap: tokens.$spacing-48;
+
+      @include tokens.for-size(desktop-up) {
+        flex-direction: row;
+        gap: tokens.$spacing-32;
+      }
 
       .collection__item {
         display: flex;
         align-items: center;
         justify-content: center;
         flex-direction: column;
-        gap: 16px;
+        gap: tokens.$spacing-24;
+
+        @include tokens.for-size(tablet-portrait-up) {
+          flex-direction: row;
+        }
+
+        @include tokens.for-size(desktop-up) {
+          flex-direction: column;
+          gap: tokens.$spacing-72;
+          max-width: 255px;
+        }
 
         &--img {
           width: 200px;
           height: 151px;
           object-fit: cover;
+
+          // @include tokens.for-size(desktop-up) {
+          //   width: 255px;
+          //   height: 193px;
+          // }
         }
-        &--title {
-          text-align: center;
-          color: tokens.$dark-grey-blue;
-          @include tokens.font(
-            tokens.$font-size-24,
-            tokens.$font-weight-900,
-            tokens.$line-height-32,
-            tokens.$font-family-fraunces-9
-          );
-        }
-        &--desc {
-          text-align: center;
-          color: tokens.$dark-grey-blue;
-          max-width: 282px;
-          @include tokens.font(
-            tokens.$font-size-15,
-            tokens.$font-weight-400,
-            tokens.$line-height-25,
-            tokens.$font-family-barlow
-          );
+        .collection__info {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          flex-direction: column;
+          gap: tokens.$spacing-16;
+
+          @include tokens.for-size(desktop-up) {
+            gap: tokens.$spacing-24;
+          }
+          .collection__item--title {
+            text-align: center;
+            color: tokens.$dark-grey-blue;
+            @include tokens.font(
+              tokens.$font-size-24,
+              tokens.$font-weight-900,
+              tokens.$line-height-32,
+              tokens.$font-family-fraunces-9
+            );
+          }
+          .collection__item--desc {
+            text-align: center;
+            color: tokens.$dark-grey-blue;
+            max-width: 282px;
+            @include tokens.font(
+              tokens.$font-size-15,
+              tokens.$font-weight-400,
+              tokens.$line-height-25,
+              tokens.$font-family-barlow
+            );
+          }
         }
       }
     }

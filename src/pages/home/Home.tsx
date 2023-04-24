@@ -1,8 +1,9 @@
 import React from 'react';
-import './Home.scss';
+import { Fade } from 'react-awesome-reveal';
 import { Button } from '../../components/button/Button';
 import { homeCoffes } from '../../utils/data';
 import { HomeCoffes } from '../../utils/types';
+import './Home.scss';
 
 export const Home = () => {
   return (
@@ -20,15 +21,19 @@ export const Home = () => {
         <span className="collection__title">our collection</span>
         <div className="collection__grid">
           {homeCoffes.map((coffe: HomeCoffes) => (
-            <div className="collection__item" key={coffe.id}>
-              <img
-                className="collection__item--img"
-                src={coffe.img}
-                alt={coffe.title}
-              />
-              <span className="collection__item--title">{coffe.title}</span>
-              <span className="collection__item--desc">{coffe.desc}</span>
-            </div>
+            <Fade triggerOnce key={coffe.img}>
+              <div className="collection__item" >
+                <img
+                  className="collection__item--img"
+                  src={coffe.img}
+                  alt={coffe.title}
+                />
+                <div className="collection__info">
+                  <span className="collection__item--title">{coffe.title}</span>
+                  <span className="collection__item--desc">{coffe.desc}</span>
+                </div>
+              </div>
+            </Fade>
           ))}
         </div>
       </div>
