@@ -1,0 +1,55 @@
+@use '../../tokens/index.scss' as tokens;
+
+.img-card {
+  width: 327px;
+  height: 400px;
+  margin-bottom: 120px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 24px;
+  padding: 24px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  &.about {
+    background-image: url('../../assets/about/mobile/image-hero-whitecup.jpg');
+  }
+  &.plan {
+    background-image: url('../../assets/plan/mobile/image-hero-blackcup.jpg');
+  }
+
+  &__title {
+    text-align: center;
+    color: #fefcf7;
+    &.small {
+      @include tokens.font(
+        tokens.$font-size-28,
+        tokens.$font-weight-900,
+        tokens.$line-height-28,
+        tokens.$font-family-fraunces-9
+      );
+    }
+    &.large {
+      @include tokens.font(
+        tokens.$font-size-40,
+        tokens.$font-weight-900,
+        tokens.$line-height-40,
+        tokens.$font-family-fraunces-9
+      );
+    }
+  }
+  &__description {
+    text-align: center;
+    color: #fefcf7;
+    mix-blend-mode: normal;
+    opacity: 0.8;
+    @include tokens.font(
+      tokens.$font-size-15,
+      tokens.$font-weight-400,
+      tokens.$line-height-25,
+      tokens.$font-family-barlow
+    );
+  }
+}

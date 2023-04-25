@@ -1,11 +1,10 @@
 import React from 'react';
 import { Fade } from 'react-awesome-reveal';
-import { Button } from '../../components/button/Button';
-import { featureInfo, homeCoffes, worksSteps } from '../../utils/data';
-import { HomeCoffes, StepsWorks } from '../../utils/types';
-import './Home.scss';
+import { Button, Steps } from '../../components';
+import { featureInfo, homeCoffes } from '../../utils/data';
+import { HomeCoffes } from '../../utils/types';
 import { Link } from 'react-router-dom';
-import { Steps } from '../../components/steps/Steps';
+import './Home.scss';
 
 export const Home = () => {
   return (
