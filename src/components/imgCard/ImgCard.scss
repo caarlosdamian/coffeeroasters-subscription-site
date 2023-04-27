@@ -3,26 +3,51 @@
 .img-card {
   width: 327px;
   height: 400px;
-  margin-bottom: 120px;
-  border-radius: 10px;
+  margin-bottom: tokens.$padding-spaicing-120;
+  border-radius: tokens.$border-radius-10;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  gap: 24px;
-  padding: 24px;
-  background-repeat: no-repeat;
-  background-size: cover;
+  gap: tokens.$spacing-24;
+  padding: tokens.$padding-spaicing-24;
+  background-repeat: no-repeat !important;
+  background-size: cover !important;
+
+  @include tokens.for-size(tablet-portrait-up) {
+    width: 689px;
+    height: 400px;
+    align-items: flex-start;
+    padding: tokens.$padding-spaicing-120 58px;
+  }
+  @include tokens.for-size(desktop-up) {
+    width: 1280px;
+    height: 450px;
+    padding: 140px tokens.$padding-spaicing-84;
+  }
+
   &.about {
     background-image: url('../../assets/about/mobile/image-hero-whitecup.jpg');
+    @include tokens.for-size(tablet-portrait-up) {
+      background-image: url('../../assets/about/tablet/image-hero-whitecup.jpg');
+    }
+    @include tokens.for-size(desktop-up) {
+      background-image: url('../../assets/about/desktop/image-hero-whitecup.jpg');
+    }
   }
   &.plan {
     background-image: url('../../assets/plan/mobile/image-hero-blackcup.jpg');
+    @include tokens.for-size(tablet-portrait-up) {
+      background-image: url('../../assets/plan/tablet/image-hero-blackcup.jpg');
+    }
+    @include tokens.for-size(desktop-up) {
+      background-image: url('../../assets/plan/tablet/image-hero-blackcup.jpg');
+    }
   }
 
   &__title {
     text-align: center;
-    color: #fefcf7;
+    color: tokens.$light-cream;
     &.small {
       @include tokens.font(
         tokens.$font-size-28,
@@ -30,6 +55,15 @@
         tokens.$line-height-28,
         tokens.$font-family-fraunces-9
       );
+      @include tokens.for-size(tablet-portrait-up) {
+        font-size: 32px;
+        line-height: tokens.$line-height-40;
+      }
+
+      @include tokens.for-size(desktop-up) {
+        font-size: tokens.$font-size-48;
+        line-height: tokens.$line-height-48;
+      }
     }
     &.large {
       @include tokens.font(
@@ -38,11 +72,19 @@
         tokens.$line-height-40,
         tokens.$font-family-fraunces-9
       );
+      @include tokens.for-size(tablet-portrait-up) {
+        font-size: tokens.$font-size-48;
+        line-height: tokens.$line-height-48;
+      }
+      @include tokens.for-size(desktop-up) {
+        font-size: tokens.$font-size-72;
+        line-height: tokens.$line-height-72;
+      }
     }
   }
   &__description {
     text-align: center;
-    color: #fefcf7;
+    color: tokens.$light-cream;
     mix-blend-mode: normal;
     opacity: 0.8;
     @include tokens.font(
@@ -51,5 +93,10 @@
       tokens.$line-height-25,
       tokens.$font-family-barlow
     );
+
+    @include tokens.for-size(tablet-portrait-up) {
+      text-align: start;
+      max-width: 400px;
+    }
   }
 }
