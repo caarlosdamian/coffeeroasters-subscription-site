@@ -1,4 +1,6 @@
 import {
+  australia,
+  canada,
   coffeBean,
   danche,
   espresso,
@@ -6,6 +8,7 @@ import {
   picollo,
   planalto,
   truck,
+  uk,
 } from '../assets';
 import { HomeCoffes, MenuLinks, StepsWorks } from './types';
 
@@ -90,5 +93,77 @@ export const worksSteps: StepsWorks[] = [
     id: '03',
     title: 'Receive and enjoy!',
     desc: 'We ship your package within 48 hours, freshly roasted. Sit back and enjoy award-winning world-class coffees curated to provide a distinct tasting experience.',
+  },
+];
+
+export const headQuartrsInfo = [
+  {
+    id: 'h1',
+    img: uk,
+    country: 'United Kingdom',
+    address: [
+      {
+        id: 'ha1',
+        label: '68  Asfordby Rd',
+      },
+      {
+        id: 'ha2',
+        label: 'Alcaston',
+      },
+      {
+        id: 'ha3',
+        label: 'SY6 1YA',
+      },
+      {
+        id: 'ha4',
+        label: '+44 1241 918425',
+      },
+    ],
+  },
+  {
+    id: 'h2',
+    img: canada,
+    country: 'Canada',
+    address: [
+      {
+        id: 'ha5',
+        label: '1528  Eglinton Avenue',
+      },
+      {
+        id: 'ha6',
+        label: 'Toronto',
+      },
+      {
+        id: 'ha7',
+        label: 'Ontario M4P 1A6',
+      },
+      {
+        id: 'ha8',
+        label: '+1 416 485 2997',
+      },
+    ],
+  },
+  {
+    id: 'h3',
+    img: australia,
+    country: 'Australia',
+    address: [
+      {
+        id: 'ha9',
+        label: '36 Swanston Street',
+      },
+      {
+        id: 'ha10',
+        label: 'Kewell',
+      },
+      {
+        id: 'ha11',
+        label: 'Victoria',
+      },
+      {
+        id: 'ha12',
+        label: '+61 4 9928 3629',
+      },
+    ],
   },
 ];

@@ -9,7 +9,9 @@ import planalto from './home/desktop/image-planalto.png';
 import coffeBean from './home/desktop/icon-coffee-bean.svg';
 import gift from './home/desktop/icon-gift.svg';
 import truck from './home/desktop/icon-truck.svg';
-// import commitment from './about/mobile/'
+import uk from '../assets/about/desktop/illustration-uk.svg';
+import canada from '../assets/about/desktop/illustration-canada.svg';
+import australia from '../assets/about/desktop/illustration-australia.svg';
 
 export {
   logo,
@@ -22,5 +24,8 @@ export {
   coffeBean,
   gift,
   truck,
-  logoFooter
+  logoFooter,
+  australia,
+  canada,
+  uk,
 };

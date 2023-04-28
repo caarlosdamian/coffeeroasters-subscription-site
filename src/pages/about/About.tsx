@@ -1,6 +1,7 @@
 import React from 'react';
 import { ImgCard } from '../../components';
 import './About.scss';
+import { headQuartrsInfo } from '../../utils/data';
 
 export const About = () => {
   return (
@@ -28,6 +29,36 @@ export const About = () => {
             only the finest blends, we roast each lot to highlight tasting
             profiles distinctive to their native growing region.
           </span>
+        </div>
+      </section>
+      <section className="quality">
+        <div className="quality__img"></div>
+        <span className="quality__title"> Uncompromising quality</span>
+        <span className="quality__desc">
+          Although we work with growers who pay close attention to all stages of
+          harvest and processing, we employ, on our end, a rigorous quality
+          control program to avoid over-roasting or baking the coffee dry. Every
+          bag of coffee is tagged with a roast date and batch number. Our goal
+          is to roast consistent, user-friendly coffee, so that brewing is easy
+          and enjoyable.
+        </span>
+      </section>
+      <section className="headquarters">
+        <span className="headquarters__title">Our headquarters</span>
+        <div className="headquarters__info">
+          {headQuartrsInfo.map((item) => (
+            <div className="headquarters__info--item" key={item.id}>
+              <img src={item.img} alt={item.country} />
+              <span className="headquarters__info--title">{item.country}</span>
+              <div className="address__info">
+                {item.address.map((address) => (
+                  <span className="address__info--item" key={address.id}>
+                    {address.label}
+                  </span>
+                ))}
+              </div>
+            </div>
+          ))}
         </div>
       </section>
     </div>
