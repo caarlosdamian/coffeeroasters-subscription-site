@@ -1,4 +1,98 @@
-.about{
-    background: #FEFCF7;
+@use '../../tokens/index.scss' as tokens;
+
+.about {
+  background: #fefcf7;
+  padding: 0 24px;
+
+  @include tokens.for-size(tablet-portrait-up) {
     padding: 0 40px;
+  }
+  @include tokens.for-size(desktop-up) {
+    padding: 0 80px;
+  }
+
+  .commitment {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 48px;
+    margin-bottom: 120px;
+
+    @include tokens.for-size(tablet-portrait-up) {
+      flex-direction: row;
+      gap: 70px;
+      align-items: flex-start;
+    }
+    @include tokens.for-size(desktop-up) {
+      gap: 125px;
+      align-items: center;
+    }
+    &__img {
+      background-image: url('../../assets/about/mobile/image-commitment.jpg');
+      background-size: cover;
+      width: 327px;
+      height: 400px;
+      border-radius: 8px;
+
+      @include tokens.for-size(tablet-portrait-up) {
+        background-image: url('../../assets/about/tablet/image-commitment.jpg');
+        width: 281px;
+        height: 470px;
+      }
+
+      @include tokens.for-size(desktop-up) {
+        background-image: url('../../assets/about/desktop/image-commitment.jpg');
+        width: 445px;
+        height: 520px;
+      }
+    }
+    &__info {
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      gap: 30px;
+
+      @include tokens.for-size(tablet-portrait-up) {
+        align-items: flex-start;
+      }
+      @include tokens.for-size(desktop-up) {
+        gap: 32px;
+      }
+
+      &--title {
+        text-align: center;
+        color: #333d4b;
+        @include tokens.font(
+          tokens.$font-size-32,
+          tokens.$font-weight-900,
+          tokens.$line-height-48,
+          tokens.$font-family-fraunces-9
+        );
+        @include tokens.for-size(desktop-up) {
+          font-size: 40px;
+        }
+      }
+      &--desc {
+        text-align: center;
+        color: #333d4b;
+        mix-blend-mode: normal;
+        opacity: 0.8;
+        @include tokens.font(
+          tokens.$font-size-15,
+          tokens.$font-weight-400,
+          tokens.$line-height-25,
+          tokens.$font-family-barlow
+        );
+
+        @include tokens.for-size(tablet-portrait-up) {
+          max-width: 339px;
+          text-align: justify;
+        }
+        @include tokens.for-size(desktop-up) {
+          max-width: 540px;
+          text-align: justify;
+        }
+      }
+    }
+  }
 }

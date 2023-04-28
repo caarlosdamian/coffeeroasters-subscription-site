@@ -9,6 +9,7 @@ import planalto from './home/desktop/image-planalto.png';
 import coffeBean from './home/desktop/icon-coffee-bean.svg';
 import gift from './home/desktop/icon-gift.svg';
 import truck from './home/desktop/icon-truck.svg';
+// import commitment from './about/mobile/'
 
 export {
   logo,
