@@ -1,7 +1,7 @@
 @use '../../tokens/index.scss' as tokens;
 
 .about {
-  background: #fefcf7;
+  background: tokens.$light-cream;
   padding: 0 24px;
   display: flex;
   flex-direction: column;
@@ -66,7 +66,7 @@
 
       &--title {
         text-align: center;
-        color: #333d4b;
+        color: tokens.$dark-grey-blue;
         @include tokens.font(
           tokens.$font-size-32,
           tokens.$font-weight-900,
@@ -79,7 +79,7 @@
       }
       &--desc {
         text-align: center;
-        color: #333d4b;
+        color: tokens.$dark-grey-blue;
         mix-blend-mode: normal;
         opacity: 0.8;
         @include tokens.font(
@@ -110,8 +110,8 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    gap: 24px;
-    padding: 142px 24px 61px;
+    gap: tokens.$spacing-24;
+    padding: 142px tokens.$padding-spaicing-24 61px;
     position: relative;
 
     @include tokens.for-size(tablet-portrait-up) {
@@ -125,12 +125,12 @@
       height: 474px;
       padding: 100px 85px;
       align-items: flex-start;
-      gap: 32px;
+      gap: tokens.$spacing-32;
     }
     &__img {
       background-image: url('../../assets/about/mobile/image-quality.jpg');
       background-size: cover;
-      border-radius: 8px;
+      border-radius: tokens.$border-radius-8;
       width: 278px;
       height: 156px;
       position: absolute;
@@ -151,7 +151,7 @@
     }
     &__title {
       text-align: center;
-      color: #fefcf7;
+      color: tokens.$light-cream;
       @include tokens.font(
         tokens.$font-size-28,
         tokens.$font-weight-900,
@@ -159,17 +159,17 @@
         tokens.$font-family-fraunces-9
       );
       @include tokens.for-size(tablet-portrait-up) {
-        font-size: 32px;
-        line-height: 48px;
+        font-size: tokens.$font-size-32;
+        line-height: tokens.$line-height-48;
       }
       @include tokens.for-size(desktop-up) {
-        font-size: 40px;
-        line-height: 48px;
+        font-size: tokens.$font-size-40;
+        line-height: tokens.$line-height-48;
       }
     }
     &__desc {
       text-align: center;
-      color: #fefcf7;
+      color: tokens.$light-cream;
       mix-blend-mode: normal;
       opacity: 0.8;
       @include tokens.font(
@@ -190,8 +190,8 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 72px;
-    margin-bottom: 120px;
+    gap: tokens.$spacing-72;
+    margin-bottom: tokens.$padding-spaicing-120;
     @include tokens.for-size(tablet-portrait-up) {
       align-items: flex-start;
       align-self: flex-start;
@@ -214,17 +214,17 @@
         tokens.$font-family-fraunces-9
       );
       @include tokens.for-size(tablet-portrait-up) {
-        line-height: 36px;
+        line-height: tokens.$line-height-36;
       }
       @include tokens.for-size(desktop-up) {
-        font-size: 32px;
+        font-size: tokens.$font-size-32;
       }
     }
     &__info {
       display: flex;
       align-items: center;
       flex-direction: column;
-      gap: 80px;
+      gap: tokens.$padding-spaicing-80;
       @include tokens.for-size(tablet-portrait-up) {
         flex-direction: row;
         gap: 10px;
@@ -243,7 +243,7 @@
         }
         .headquarters__info--title {
           text-align: center;
-          color: #333d4b;
+          color: tokens.$dark-grey-blue;
           @include tokens.font(
             tokens.$font-size-28,
             tokens.$font-weight-900,
@@ -259,13 +259,13 @@
           display: flex;
           align-items: center;
           flex-direction: column;
-          gap: 8px;
+          gap: tokens.$spacing-8;
           @include tokens.for-size(tablet-portrait-up) {
             align-items: flex-start;
           }
           &--item {
             text-align: center;
-            color: #333d4b;
+            color: tokens.$dark-grey-blue;
             @include tokens.font(
               tokens.$font-size-16,
               tokens.$font-weight-400,
