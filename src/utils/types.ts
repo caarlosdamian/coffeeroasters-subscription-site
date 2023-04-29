@@ -16,3 +16,16 @@ export interface StepsWorks {
   title: string;
   desc: string;
 }
+
+export interface CoffeOption {
+  id: string;
+  title: string;
+  desc: string;
+}
+
+export interface CoffeSection {
+  id: string;
+  section: String;
+  question: string;
+  options: CoffeOption[];
+}
