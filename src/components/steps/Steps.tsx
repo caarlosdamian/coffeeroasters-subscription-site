@@ -4,7 +4,11 @@ import { Fade } from 'react-awesome-reveal';
 import { StepsWorks } from '../../utils/types';
 import './Steps.scss'
 
-export const Steps = () => {
+interface ISetps{
+  dark?: boolean;
+}
+
+export const Steps = ({ dark }: ISetps) => {
   return (
     <div className="steps">
       <div className="steps__line">
@@ -17,8 +21,8 @@ export const Steps = () => {
           <Fade triggerOnce key={step.id}>
             <div className="step__container">
               <span className="step__container--number">{step.id}</span>
-              <span className="step__container--title">{step.title}</span>
-              <span className="step__container--desc">{step.desc}</span>
+              <span className={`step__container--title ${dark ? 'dark': ''}`}>{step.title}</span>
+              <span className={`step__container--desc ${dark? 'dark' : ''}`}>{step.desc}</span>
             </div>
           </Fade>
         ))}

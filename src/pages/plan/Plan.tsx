@@ -1,5 +1,5 @@
 import React from 'react';
-import { ImgCard } from '../../components';
+import { ImgCard, Steps } from '../../components';
 import './Plan.scss';
 
 export const Plan = () => {
@@ -12,6 +12,9 @@ export const Plan = () => {
         description="Build a subscription plan that best fits your needs. We offer an assortment of the best 
         artisan coffees from around the globe delivered fresh to your door."
       />
+      <section className="setps">
+        <Steps dark />
+      </section>
     </div>
   );
 };

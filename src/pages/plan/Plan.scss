@@ -1,3 +1,27 @@
-.plan{
-    padding: 0 40px;
+@use '../../tokens/index.scss' as tokens;
+
+.plan {
+  padding: 0 40px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+
+  .steps {
+    background: #2c343e;
+    border-radius: 10px;
+    width: 375px;
+    height: 1028px;
+    padding: 80px 24px;
+    margin-bottom: 120px;
+    @include tokens.for-size(tablet-portrait-up) {
+      width: 768px;
+      height: 640px;
+      padding: 70px 40px;
+    }
+    @include tokens.for-size(desktop-up) {
+      width: 1280px;
+      height: 653px;
+      padding: 120px 85px;
+    }
+  }
 }

@@ -63,6 +63,7 @@
       @include tokens.for-size(desktop-up) {
         font-size: tokens.$font-size-48;
         line-height: tokens.$line-height-48;
+        align-self: flex-start;
       }
     }
     &.large {
@@ -79,6 +80,8 @@
       @include tokens.for-size(desktop-up) {
         font-size: tokens.$font-size-72;
         line-height: tokens.$line-height-72;
+        align-self: flex-start;
+
       }
     }
   }
@@ -97,6 +100,7 @@
     @include tokens.for-size(tablet-portrait-up) {
       text-align: start;
       max-width: 400px;
+      align-self: flex-start;
     }
   }
 }
