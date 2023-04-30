@@ -12,6 +12,7 @@ import truck from './home/desktop/icon-truck.svg';
 import uk from '../assets/about/desktop/illustration-uk.svg';
 import canada from '../assets/about/desktop/illustration-canada.svg';
 import australia from '../assets/about/desktop/illustration-australia.svg';
+import arrow from '../assets/plan/desktop/icon-arrow.svg';
 
 export {
   logo,
@@ -28,4 +29,5 @@ export {
   australia,
   canada,
   uk,
+  arrow,
 };

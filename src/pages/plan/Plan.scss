@@ -1,10 +1,12 @@
 @use '../../tokens/index.scss' as tokens;
 
 .plan {
-  padding: 0 40px;
+  padding: 0 24px;
   display: flex;
   align-items: center;
   flex-direction: column;
+  background: tokens.$light-cream;
+  transition: all ease 0.5s;
 
   .steps {
     background: #2c343e;
@@ -22,6 +24,91 @@
       width: 1280px;
       height: 653px;
       padding: 120px 85px;
+    }
+  }
+  .questions {
+    margin-bottom: 120px;
+    &__sections {
+      display: none;
+    }
+    &__container {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+      margin-bottom: 42px;
+      &.open {
+        margin-bottom: 100px;
+      }
+      &--drop {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        min-width: 100%;
+        gap: 70px;
+
+        .question__title {
+          color: #83888f;
+          max-width: 240px;
+          @include tokens.font(
+            tokens.$font-size-24,
+            tokens.$font-weight-900,
+            tokens.$line-height-28,
+            tokens.$font-family-fraunces-9
+          );
+        }
+
+        .question__arrow {
+          &.open {
+            transform: rotate(180deg);
+            transition: all ease 0.5s;
+          }
+        }
+      }
+
+      &--answers {
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+
+        .question__container {
+          background: #f4f1eb;
+          border-radius: 8px;
+          padding: 24px;
+          width: 328px;
+          height: 140px;
+          display: flex;
+          flex-direction: column;
+          gap: 8px;
+          &.selected {
+            background: #0e8784;
+          }
+
+          .option__title {
+            color: #333d4b;
+            @include tokens.font(
+              tokens.$font-size-24,
+              tokens.$font-weight-900,
+              tokens.$line-height-32,
+              tokens.$font-family-fraunces-9
+            );
+            &.selected {
+              color: #ffffff;
+            }
+          }
+          .option__desc {
+            color: #333d4b;
+            @include tokens.font(
+              tokens.$font-size-16,
+              tokens.$font-weight-900,
+              tokens.$line-height-26,
+              tokens.$font-family-fraunces-9
+            );
+            &.selected {
+              color: #ffffff;
+            }
+          }
+        }
+      }
     }
   }
 }
