@@ -1,4 +1,3 @@
-import React from 'react';
 import { ImgCard, Steps } from '../../components';
 import { coffeSections } from '../../utils/data';
 import { Question } from '../../components/question/Question';
@@ -7,7 +6,6 @@ import './Plan.scss';
 
 export const Plan = () => {
   const { selection, setSelection } = useSelection();
-
   return (
     <div className="plan">
       <ImgCard
@@ -21,15 +19,48 @@ export const Plan = () => {
         <Steps dark />
       </section>
       <section className="questions">
-        <div className="questions__sections"></div>
-        {coffeSections.map((item) => (
-          <Question
-            item={item}
-            key={item.id}
-            setSelection={setSelection}
-            selection={selection}
-          />
-        ))}
+        <div className="questions__sections">
+          {coffeSections.map((item, i) => (
+            <div className="section__container" key={Math.random()}>
+              <span
+                className={`section__number ${
+                  //@ts-ignore
+                  selection[item.id]?.value !== '' && 'completed'
+                   //@ts-ignore
+                } ${selection[item.id]?.selected && 'selected'}`}
+              >{`0${i + 1}`}</span>
+              <a
+                className={`section__title ${
+                   //@ts-ignore
+                  selection[item.id]?.selected && 'selected'
+                }`}
+                href={`#${item.id}`}
+                onClick={() =>
+                  setSelection((prevState) => ({
+                    ...prevState,
+                    [item.id]: {
+                       //@ts-ignore
+                      ...prevState[item.id],
+                      selected: true,
+                    },
+                  }))
+                }
+              >
+                {item.section}
+              </a>
+            </div>
+          ))}
+        </div>
+        <div className="questions__drops">
+          {coffeSections.map((item) => (
+            <Question
+              item={item}
+              key={item.id}
+              setSelection={setSelection}
+              selection={selection}
+            />
+          ))}
+        </div>
       </section>
     </div>
   );

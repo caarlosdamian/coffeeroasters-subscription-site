@@ -2,12 +2,24 @@ import { useState } from 'react';
 
 export const useSelection = () => {
   const [selection, setSelection] = useState({
-    coffe1: '',
-    coffe2: '',
-    coffe3: '',
-    coffe4: '',
+    coffe1: {
+      value: '',
+      selected: false,
+    },
+    coffe2: {
+      value: '',
+      selected: false,
+    },
+    coffe3: {
+      value: '',
+      selected: false,
+    },
+    coffe4: {
+      value: '',
+      selected: false,
+    },
   });
-console.log(selection)
+
   return {
     selection,
     setSelection,

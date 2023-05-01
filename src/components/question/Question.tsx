@@ -1,28 +1,27 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { arrow } from '../../assets';
 import { CoffeSection } from '../../utils/types';
 
 interface QuestionProps {
   item: CoffeSection;
-  setSelection: React.Dispatch<
-    React.SetStateAction<{
-      coffe1: string;
-      coffe2: string;
-      coffe3: string;
-      coffe4: string;
-    }>
-  >;
-  selection: { [key: string]: string };
+  setSelection: React.Dispatch<any>;
+  selection: { [key: string]: { value: String; selected: boolean } };
 }
 export const Question = ({ item, selection, setSelection }: QuestionProps) => {
   const [isOpen, setisOpen] = useState(false);
 
   const isSelected = (title: string, id: string) => {
-    return title === selection[id] ? 'selected' : '';
+    return title === selection[id].value ? 'selected' : '';
   };
 
+  useEffect(() => {
+    if (selection[item.id]?.selected) {
+      setisOpen(true);
+    }
+  }, [selection]);
+
   return (
-    <div className={`questions__container ${isOpen && 'open'}`}>
+    <div className={`questions__container ${isOpen && 'open'}`} id={item.id}>
       <div
         className="questions__container--drop"
         onClick={() => setisOpen(!isOpen)}
@@ -45,7 +44,13 @@ export const Question = ({ item, selection, setSelection }: QuestionProps) => {
                 item.id
               )}`}
               onClick={() =>
-                setSelection({ ...selection, [item.id]: option.title })
+                setSelection((prevState: any) => ({
+                  ...prevState,
+                  [item.id]: {
+                    ...prevState[item.id],
+                    value: option.title,
+                  },
+                }))
               }
             >
               <span

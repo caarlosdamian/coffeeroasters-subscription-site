@@ -7,6 +7,7 @@
   flex-direction: column;
   background: tokens.$light-cream;
   transition: all ease 0.5s;
+  scroll-behavior: smooth;
 
   .steps {
     background: #2c343e;
@@ -27,9 +28,71 @@
     }
   }
   .questions {
+    position: relative;
     margin-bottom: 120px;
+    @include tokens.for-size(desktop-up) {
+      display: flex;
+      gap: 120px;
+    }
     &__sections {
       display: none;
+      gap: 24px;
+      flex-direction: column;
+
+      @include tokens.for-size(desktop-up) {
+        display: flex;
+        position: sticky;
+        top: 100px;
+        max-height: 100px;
+      }
+
+      .section__container {
+        display: flex;
+        gap: 28px;
+        cursor: pointer;
+        color: #83888f;
+        border-bottom: 1px solid #e9e5e5;
+        padding-bottom: 24px;
+        &:hover {
+          color: #333d4b;
+        }
+        &:nth-child(5) {
+          border: none;
+        }
+
+        .section__number {
+          mix-blend-mode: normal;
+          opacity: 0.5;
+          cursor: pointer;
+          @include tokens.font(
+            tokens.$font-size-24,
+            tokens.$font-weight-900,
+            tokens.$line-height-32,
+            tokens.$font-family-fraunces
+          );
+          mix-blend-mode: normal;
+          opacity: 0.5;
+          &.completed {
+            color: #0e8784 !important;
+          }
+          &.selected {
+            color: #333d4b;
+            opacity: 1;
+          }
+        }
+        .section__title {
+          cursor: pointer;
+          @include tokens.font(
+            tokens.$font-size-24,
+            tokens.$font-weight-900,
+            tokens.$line-height-32,
+            tokens.$font-family-fraunces
+          );
+          &.selected {
+            color: #333d4b;
+          }
+        }
+      }
     }
     &__container {
       display: flex;
@@ -53,7 +116,7 @@
             tokens.$font-size-24,
             tokens.$font-weight-900,
             tokens.$line-height-28,
-            tokens.$font-family-fraunces-9
+            tokens.$font-family-fraunces
           );
         }
 
@@ -69,6 +132,11 @@
         display: flex;
         flex-direction: column;
         gap: 24px;
+        cursor: pointer;
+
+        @include tokens.for-size(desktop-up) {
+          flex-direction: row;
+        }
 
         .question__container {
           background: #f4f1eb;
@@ -79,6 +147,14 @@
           display: flex;
           flex-direction: column;
           gap: 8px;
+          cursor: pointer;
+          &:hover {
+            background: #fdd6ba;
+          }
+          @include tokens.for-size(desktop-up) {
+            width: 228px;
+            height: 250px;
+          }
           &.selected {
             background: #0e8784;
           }
@@ -89,7 +165,7 @@
               tokens.$font-size-24,
               tokens.$font-weight-900,
               tokens.$line-height-32,
-              tokens.$font-family-fraunces-9
+              tokens.$font-family-fraunces
             );
             &.selected {
               color: #ffffff;
