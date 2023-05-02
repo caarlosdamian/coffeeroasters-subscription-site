@@ -102,10 +102,9 @@
     }
 
     &__drops {
-      // margin-bottom: 120px;
-      width: 730px;
       @include tokens.for-size(tablet-portrait-up) {
         align-self: flex-end;
+        width: 730px;
       }
     }
   }
