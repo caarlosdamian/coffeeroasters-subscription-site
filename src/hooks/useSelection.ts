@@ -24,7 +24,6 @@ export const useSelection = () => {
     },
   });
 
-
   const sectionDisable = useMemo(
     () => selection.coffe1.value === 'Capsule',
     [selection.coffe1.value]
@@ -32,7 +31,7 @@ export const useSelection = () => {
 
   const textMessage = useMemo(
     () =>
-      `I drink my coffee ${
+      `<span class='summary__message'> “I drink my coffee <strong>${
         selection.coffe1.value === ''
           ? '_____'
           : selection.coffe1.value === 'Capsule'
@@ -40,25 +39,24 @@ export const useSelection = () => {
           : selection.coffe1.value === 'Espresso'
           ? 'as Espresso'
           : 'as Filter'
-      } , with a ${
+      }</strong> , with a <strong>${
         selection.coffe2.value !== '' ? selection.coffe2.value : '_____'
-      } type of bean. ${selection.coffe3.value} ${
+      }</strong> type of bean. <strong>${selection.coffe3.value} ${
         selection.coffe1.value === ''
           ? '_____'
           : selection.coffe1.value === 'Capsule'
           ? ''
-          : `ground ala ${selection.coffe4.value}`
-      } , sent to me ${
+          : `groundala ${selection.coffe4.value}`
+      }</strong> , sent to me <strong>${
         selection.coffe5.value === '' ? '_____' : selection.coffe5.value
-      }.`,
+      }</strong>.”</span>`,
     [selection]
   );
-
 
   return {
     selection,
     setSelection,
     sectionDisable,
-    textMessage
+    textMessage: { __html: textMessage },
   };
 };

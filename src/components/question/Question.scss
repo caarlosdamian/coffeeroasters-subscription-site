@@ -1,0 +1,118 @@
+@use '../../tokens/index.scss' as tokens;
+
+.questions__container {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  margin-bottom: 42px;
+  width: 100%;
+  @include tokens.for-size(desktop-up) {
+    min-width: 600px;
+  }
+  @include tokens.for-size(desktop-up) {
+    min-width: 732px;
+  }
+  &.open {
+    margin-bottom: 100px;
+  }
+  &--drop {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-width: 100%;
+    gap: 70px;
+
+    @include tokens.for-size(tablet-portrait-up) {
+      min-width: 732px;
+    }
+    .question__title {
+      color: #83888f;
+      max-width: 240px;
+      @include tokens.font(
+        tokens.$font-size-24,
+        tokens.$font-weight-900,
+        tokens.$line-height-28,
+        tokens.$font-family-fraunces
+      );
+      @include tokens.for-size(desktop-up) {
+        max-width: 100%;
+        font-size: 40px;
+        line-height: 48px;
+      }
+      &.disable {
+        opacity: 0.25;
+      }
+    }
+
+    .question__arrow {
+      &.open {
+        transform: rotate(180deg);
+        transition: all ease 0.5s;
+      }
+      &.disable {
+        opacity: 0.25;
+      }
+    }
+  }
+
+  &--answers {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    cursor: pointer;
+
+    @include tokens.for-size(tablet-portrait-up) {
+      flex-direction: row;
+    }
+    @include tokens.for-size(desktop-up) {
+      align-self: flex-end;
+    }
+
+    .question__container {
+      background: #f4f1eb;
+      border-radius: 8px;
+      padding: 24px;
+      width: 328px;
+      height: 140px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      cursor: pointer;
+      &:hover {
+        background: #fdd6ba;
+      }
+      @include tokens.for-size(tablet-portrait-up) {
+        width: 228px;
+        height: 250px;
+      }
+      &.selected {
+        background: #0e8784;
+      }
+
+      .option__title {
+        color: #333d4b;
+        @include tokens.font(
+          tokens.$font-size-24,
+          tokens.$font-weight-900,
+          tokens.$line-height-32,
+          tokens.$font-family-fraunces
+        );
+        &.selected {
+          color: #ffffff;
+        }
+      }
+      .option__desc {
+        color: #333d4b;
+        @include tokens.font(
+          tokens.$font-size-16,
+          tokens.$font-weight-900,
+          tokens.$line-height-26,
+          tokens.$font-family-fraunces-9
+        );
+        &.selected {
+          color: #ffffff;
+        }
+      }
+    }
+  }
+}

@@ -1,6 +1,7 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import { arrow } from '../../assets';
 import { CoffeSection } from '../../utils/types';
+import './Question.scss'
 
 interface QuestionProps {
   item: CoffeSection;

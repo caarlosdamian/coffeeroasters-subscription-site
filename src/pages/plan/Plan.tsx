@@ -1,4 +1,4 @@
-import { ImgCard, Steps } from '../../components';
+import { Button, ImgCard, Steps } from '../../components';
 import { coffeSections } from '../../utils/data';
 import { Question } from '../../components/question/Question';
 import { useSelection } from '../../hooks/useSelection';
@@ -64,6 +64,13 @@ export const Plan = () => {
             />
           ))}
         </div>
+      </section>
+      <section className="summary">
+        <span className="summary__title">Order Summary</span>
+        <div  className='summary__container' dangerouslySetInnerHTML={textMessage}></div>
+      </section>
+      <section className="summary__button">
+        <Button label='Create my plan!' />
       </section>
     </div>
   );

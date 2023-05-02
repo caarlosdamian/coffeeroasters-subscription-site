@@ -251,8 +251,8 @@ export const coffeSections: CoffeSection[] = [
         desc: 'For drip or pour-over coffee methods such as V60 or Aeropress',
       },
       {
-        id: 'Cafetiére',
-        title: '1000g',
+        id: 'options12',
+        title: 'Cafetiére',
         desc: 'Course ground beans specially suited for french press coffee',
       },
     ],
@@ -263,19 +263,19 @@ export const coffeSections: CoffeSection[] = [
     question: 'How often should we deliver?',
     options: [
       {
-        id: 'options10',
+        id: 'options13',
         title: 'Every week',
         desc: '$7.20 per shipment. Includes free first-class shipping.',
       },
       {
-        id: 'options11',
+        id: 'options14',
         title: 'Every 2 weeks',
-        desc: '$12.00 per shipment. Includes free priority shipping.',
+        desc: '$9.60 per shipment. Includes free priority shipping.',
       },
       {
-        id: 'Cafetiére',
+        id: 'options15',
         title: 'Every month',
-        desc: 'Course ground beans specially suited for french press coffee',
+        desc: '$12.00 per shipment. Includes free priority shipping.',
       },
     ],
   },

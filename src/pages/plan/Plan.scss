@@ -31,10 +31,11 @@
   }
   .questions {
     position: relative;
-    margin-bottom: 120px;
     @include tokens.for-size(desktop-up) {
       display: flex;
-      gap: 120px;
+      // gap: 120px;
+      min-width: 100%;
+      justify-content: space-between;
     }
     &__sections {
       display: none;
@@ -62,6 +63,9 @@
           border: none;
         }
 
+        @include tokens.for-size(desktop-up) {
+          min-width: 255px;
+        }
         .section__number {
           mix-blend-mode: normal;
           opacity: 0.5;
@@ -96,110 +100,77 @@
         }
       }
     }
-    &__container {
-      display: flex;
-      flex-direction: column;
-      gap: 18px;
-      margin-bottom: 42px;
-      min-width: 732px;
-      @include tokens.for-size(desktop-up) {
-        min-width: 732px;
+
+    &__drops {
+      // margin-bottom: 120px;
+      width: 730px;
+      @include tokens.for-size(tablet-portrait-up) {
+        align-self: flex-end;
       }
-      &.open {
-        margin-bottom: 100px;
-      }
-      &--drop {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        min-width: 100%;
-        gap: 70px;
+    }
+  }
+  .summary {
+    width: 328px;
+    height: 338px;
+    background: #2c343e;
+    border-radius: 10px;
+    padding: 32px 24px;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 56px;
+    gap: 8px;
+    margin-top: 120px;
+    position: relative;
+    z-index: 9999;
 
-        .question__title {
-          color: #83888f;
-          max-width: 240px;
-          @include tokens.font(
-            tokens.$font-size-24,
-            tokens.$font-weight-900,
-            tokens.$line-height-28,
-            tokens.$font-family-fraunces
-          );
-          @include tokens.for-size(desktop-up) {
-            max-width: 100%;
-          }
-          &.disable {
-            opacity: 0.25;
-          }
-        }
+    @include tokens.for-size(tablet-portrait-up) {
+      width: 689px;
+      height: 208px;
+      padding: 28px 44px;
+    }
+    @include tokens.for-size(tablet-portrait-up) {
+      align-self: flex-end;
+      width: 730px;
+      height: 208px;
+      padding: 32px 64px;
+      margin-top: 84px;
+    }
 
-        .question__arrow {
-          &.open {
-            transform: rotate(180deg);
-            transition: all ease 0.5s;
-          }
-          &.disable {
-            opacity: 0.25;
-          }
-        }
-      }
+    &__title {
+      text-transform: uppercase;
+      color: #ffffff;
+      mix-blend-mode: normal;
+      opacity: 0.5;
+      @include tokens.font(
+        tokens.$font-size-16,
+        tokens.$font-weight-400,
+        tokens.$line-height-26,
+        tokens.$font-family-barlow
+      );
+    }
 
-      &--answers {
-        display: flex;
-        flex-direction: column;
-        gap: 24px;
-        cursor: pointer;
+    .summary__container {
+      .summary__message {
+        @include tokens.font(
+          tokens.$font-size-24,
+          tokens.$font-weight-900,
+          tokens.$line-height-40,
+          tokens.$font-family-fraunces
+        );
+        color: #ffffff;
 
-        @include tokens.for-size(desktop-up) {
-          flex-direction: row;
-        }
-
-        .question__container {
-          background: #f4f1eb;
-          border-radius: 8px;
-          padding: 24px;
-          width: 328px;
-          height: 140px;
-          display: flex;
-          flex-direction: column;
-          gap: 8px;
-          cursor: pointer;
-          &:hover {
-            background: #fdd6ba;
-          }
-          @include tokens.for-size(desktop-up) {
-            width: 228px;
-            height: 250px;
-          }
-          &.selected {
-            background: #0e8784;
-          }
-
-          .option__title {
-            color: #333d4b;
-            @include tokens.font(
-              tokens.$font-size-24,
-              tokens.$font-weight-900,
-              tokens.$line-height-32,
-              tokens.$font-family-fraunces
-            );
-            &.selected {
-              color: #ffffff;
-            }
-          }
-          .option__desc {
-            color: #333d4b;
-            @include tokens.font(
-              tokens.$font-size-16,
-              tokens.$font-weight-900,
-              tokens.$line-height-26,
-              tokens.$font-family-fraunces-9
-            );
-            &.selected {
-              color: #ffffff;
-            }
-          }
+        strong {
+          color: #0e8784;
         }
       }
     }
+  }
+
+  .summary__button {
+    @include tokens.for-size(tablet-portrait-up) {
+      align-self: flex-end;
+    }
+    margin-top: 56px;
+    margin-bottom: 120px;
   }
 }
