@@ -8,7 +8,12 @@ interface QuestionProps {
   selection: { [key: string]: { value: String; selected: boolean } };
   disable: boolean;
 }
-export const Question = ({ item, selection, setSelection, disable }: QuestionProps) => {
+export const Question = ({
+  item,
+  selection,
+  setSelection,
+  disable,
+}: QuestionProps) => {
   const [isOpen, setisOpen] = useState(false);
 
   const isSelected = (title: string, id: string) => {
@@ -21,28 +26,29 @@ export const Question = ({ item, selection, setSelection, disable }: QuestionPro
     }
   }, [selection]);
 
-  // const sectionDisable = useMemo(() => selection.coffe1.value === 'Capsule' && item.id === 'coffe4', [selection.coffe1.value])
-console.log('====disable===',disable,item.id)
-
   return (
     <div className={`questions__container ${isOpen && 'open'}`} id={item.id}>
       <div
         className="questions__container--drop"
-        onClick={() => setisOpen(!isOpen)}
+        onClick={() => setisOpen(disable ? false : !isOpen)}
       >
-        <span className="question__title">{item.question}</span>
+        <span className={`question__title ${disable ? 'disable' : ''}`}>
+          {item.question}
+        </span>
         <img
           src={arrow}
           alt="arrow"
-          className={`question__arrow ${isOpen && 'open'}`}
-          onClick={() => setisOpen(!isOpen)}
+          className={`question__arrow ${disable ? 'disable' : ''} ${
+            isOpen && 'open'
+          }`}
+          onClick={() => setisOpen(disable ? false : !isOpen)}
         />
       </div>
-      {isOpen && (
+      {isOpen && !disable && (
         <div className="questions__container--answers">
           {item.options.map((option) => (
             <div
-              kay={option.id}
+              key={option.id}
               className={`question__container ${isSelected(
                 option.title,
                 item.id

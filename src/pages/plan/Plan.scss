@@ -127,12 +127,18 @@
           @include tokens.for-size(desktop-up) {
             max-width: 100%;
           }
+          &.disable {
+            opacity: 0.25;
+          }
         }
 
         .question__arrow {
           &.open {
             transform: rotate(180deg);
             transition: all ease 0.5s;
+          }
+          &.disable {
+            opacity: 0.25;
           }
         }
       }
