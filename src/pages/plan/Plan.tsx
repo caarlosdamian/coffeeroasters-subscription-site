@@ -3,9 +3,12 @@ import { coffeSections } from '../../utils/data';
 import { Question } from '../../components/question/Question';
 import { useSelection } from '../../hooks/useSelection';
 import './Plan.scss';
+import { useMemo } from 'react';
 
 export const Plan = () => {
   const { selection, setSelection } = useSelection();
+  const sectionDisable = useMemo(() => selection.coffe1.value === 'Capsule', [selection.coffe1.value])
+
   return (
     <div className="plan">
       <ImgCard
@@ -58,6 +61,7 @@ export const Plan = () => {
               key={item.id}
               setSelection={setSelection}
               selection={selection}
+              disable={sectionDisable && item.id === 'coffe4'}
             />
           ))}
         </div>

@@ -18,6 +18,10 @@ export const useSelection = () => {
       value: '',
       selected: false,
     },
+    coffe5: {
+      value: '',
+      selected: false,
+    },
   });
 
   return {

@@ -16,6 +16,8 @@
     height: 1028px;
     padding: 80px 24px;
     margin-bottom: 120px;
+    display: flex;
+    align-items: center;
     @include tokens.for-size(tablet-portrait-up) {
       width: 768px;
       height: 640px;
@@ -99,6 +101,10 @@
       flex-direction: column;
       gap: 18px;
       margin-bottom: 42px;
+      min-width: 732px;
+      @include tokens.for-size(desktop-up) {
+        min-width: 732px;
+      }
       &.open {
         margin-bottom: 100px;
       }
@@ -118,6 +124,9 @@
             tokens.$line-height-28,
             tokens.$font-family-fraunces
           );
+          @include tokens.for-size(desktop-up) {
+            max-width: 100%;
+          }
         }
 
         .question__arrow {

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import { arrow } from '../../assets';
 import { CoffeSection } from '../../utils/types';
 
@@ -6,8 +6,9 @@ interface QuestionProps {
   item: CoffeSection;
   setSelection: React.Dispatch<any>;
   selection: { [key: string]: { value: String; selected: boolean } };
+  disable: boolean;
 }
-export const Question = ({ item, selection, setSelection }: QuestionProps) => {
+export const Question = ({ item, selection, setSelection, disable }: QuestionProps) => {
   const [isOpen, setisOpen] = useState(false);
 
   const isSelected = (title: string, id: string) => {
@@ -19,6 +20,9 @@ export const Question = ({ item, selection, setSelection }: QuestionProps) => {
       setisOpen(true);
     }
   }, [selection]);
+
+  // const sectionDisable = useMemo(() => selection.coffe1.value === 'Capsule' && item.id === 'coffe4', [selection.coffe1.value])
+console.log('====disable===',disable,item.id)
 
   return (
     <div className={`questions__container ${isOpen && 'open'}`} id={item.id}>
