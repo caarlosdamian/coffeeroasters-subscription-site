@@ -3,11 +3,10 @@ import { coffeSections } from '../../utils/data';
 import { Question } from '../../components/question/Question';
 import { useSelection } from '../../hooks/useSelection';
 import './Plan.scss';
-import { useMemo } from 'react';
 
 export const Plan = () => {
-  const { selection, setSelection } = useSelection();
-  const sectionDisable = useMemo(() => selection.coffe1.value === 'Capsule', [selection.coffe1.value])
+  const { selection, setSelection, sectionDisable, textMessage } =
+    useSelection();
 
   return (
     <div className="plan">
@@ -29,12 +28,12 @@ export const Plan = () => {
                 className={`section__number ${
                   //@ts-ignore
                   selection[item.id]?.value !== '' && 'completed'
-                   //@ts-ignore
+                  //@ts-ignore
                 } ${selection[item.id]?.selected && 'selected'}`}
               >{`0${i + 1}`}</span>
               <a
                 className={`section__title ${
-                   //@ts-ignore
+                  //@ts-ignore
                   selection[item.id]?.selected && 'selected'
                 }`}
                 href={`#${item.id}`}
@@ -42,7 +41,7 @@ export const Plan = () => {
                   setSelection((prevState) => ({
                     ...prevState,
                     [item.id]: {
-                       //@ts-ignore
+                      //@ts-ignore
                       ...prevState[item.id],
                       selected: true,
                     },
