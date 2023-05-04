@@ -3,10 +3,12 @@ import { coffeSections } from '../../utils/data';
 import { Question } from '../../components/question/Question';
 import { useSelection } from '../../hooks/useSelection';
 import './Plan.scss';
+import { useContext } from 'react';
+import { SelectionContext } from '../../context/selectionContext';
 
 export const Plan = () => {
   const { selection, setSelection, sectionDisable, textMessage } =
-    useSelection();
+    useContext(SelectionContext);
 
   return (
     <div className="plan">
@@ -67,10 +69,13 @@ export const Plan = () => {
       </section>
       <section className="summary">
         <span className="summary__title">Order Summary</span>
-        <div  className='summary__container' dangerouslySetInnerHTML={textMessage}></div>
+        <div
+          className="summary__container"
+          dangerouslySetInnerHTML={textMessage}
+        ></div>
       </section>
       <section className="summary__button">
-        <Button label='Create my plan!' />
+        <Button label="Create my plan!" />
       </section>
     </div>
   );

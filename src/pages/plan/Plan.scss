@@ -33,7 +33,6 @@
     position: relative;
     @include tokens.for-size(desktop-up) {
       display: flex;
-      // gap: 120px;
       min-width: 100%;
       justify-content: space-between;
     }
@@ -120,7 +119,7 @@
     gap: 8px;
     margin-top: 120px;
     position: relative;
-    z-index: 9999;
+    z-index: 9;
 
     @include tokens.for-size(tablet-portrait-up) {
       width: 689px;

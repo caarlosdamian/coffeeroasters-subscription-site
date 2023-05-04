@@ -1,0 +1,101 @@
+@use '../../tokens/index.scss' as tokens;
+
+.modal {
+  &__overlay {
+    background: #000000;
+    mix-blend-mode: normal;
+    opacity: 0.5;
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    z-index: 10;
+  }
+  &__container {
+    width: 327px;
+    height: 580px;
+    background: #fefcf7;
+    border-radius: 8px;
+    position: fixed;
+    top: 34px;
+    left: 0;
+    right: 0;
+    margin: auto;
+    z-index: 9999;
+
+    &--upper {
+      height: 88px;
+      background: #333d4b;
+      border-radius: 8px 8px 0 0;
+      padding: 24px;
+
+      .order__summary {
+        color: #ffffff;
+        @include tokens.font(
+          tokens.$font-size-28,
+          tokens.$font-weight-900,
+          tokens.$line-height-32,
+          tokens.$font-family-fraunces
+        );
+      }
+    }
+    &--down {
+      padding: 40px 24px 24px;
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      gap: 24px;
+
+      .modal__description--container {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        .summary__container {
+          .summary__message {
+            @include tokens.font(
+              tokens.$font-size-24,
+              tokens.$font-weight-900,
+              tokens.$line-height-40,
+              tokens.$font-family-fraunces
+            );
+            color: #83888f;
+
+            strong {
+              color: #0e8784;
+            }
+          }
+        }
+        .description {
+          @include tokens.font(
+            tokens.$font-size-15,
+            tokens.$font-weight-400,
+            tokens.$line-height-25,
+            tokens.$font-family-barlow
+          );
+          color: #333d4b;
+          text-align: justify;
+          mix-blend-mode: normal;
+          opacity: 0.8;
+        }
+      }
+
+      .button__section {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+
+        .checkout__desc {
+          display: none;
+          @include tokens.font(
+            tokens.$font-size-32,
+            tokens.$font-weight-900,
+            tokens.$line-height-36,
+            tokens.$font-family-fraunces
+          );
+          color: #333d4b;
+        }
+      }
+    }
+  }
+}
