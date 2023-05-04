@@ -3,15 +3,18 @@ import './Modal.scss';
 import { useSelection } from '../../hooks/useSelection';
 import { SelectionContext } from '../../context/selectionContext';
 import { Button } from '../button/Button';
+import { ModalContext } from '../../context/modalContext';
 
 export const Modal = () => {
   const { selection, setSelection, sectionDisable, textMessage } =
     useContext(SelectionContext);
 
-  console.log('====textMessage=', textMessage);
+    const {handleShow} = useContext(ModalContext)
+
+
   return (
     <div className="modal">
-      <div className="modal__overlay"></div>
+      <div className="modal__overlay" onClick={handleShow}></div>
       <div className="modal__container">
         <div className="modal__container--upper">
           <span className="order__summary">Order Summary</span>

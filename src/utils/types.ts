@@ -29,3 +29,27 @@ export interface CoffeSection {
   question: string;
   options: CoffeOption[];
 }
+
+
+export interface SelectionState {
+  coffe1: {
+    value: string;
+    selected: boolean;
+  };
+  coffe2: {
+    value: string;
+    selected: boolean;
+  };
+  coffe3: {
+    value: string;
+    selected: boolean;
+  };
+  coffe4: {
+    value: string;
+    selected: boolean;
+  };
+  coffe5: {
+    value: string;
+    selected: boolean;
+  };
+}

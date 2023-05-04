@@ -1,14 +1,16 @@
 import { Button, ImgCard, Steps } from '../../components';
 import { coffeSections } from '../../utils/data';
 import { Question } from '../../components/question/Question';
-import { useSelection } from '../../hooks/useSelection';
-import './Plan.scss';
 import { useContext } from 'react';
 import { SelectionContext } from '../../context/selectionContext';
+import { ModalContext } from '../../context/modalContext';
+import './Plan.scss';
 
 export const Plan = () => {
   const { selection, setSelection, sectionDisable, textMessage } =
     useContext(SelectionContext);
+
+    const {handleShow} = useContext(ModalContext)
 
   return (
     <div className="plan">
@@ -75,7 +77,7 @@ export const Plan = () => {
         ></div>
       </section>
       <section className="summary__button">
-        <Button label="Create my plan!" />
+        <Button label="Create my plan!" onClick={handleShow} />
       </section>
     </div>
   );

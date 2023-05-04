@@ -1,7 +1,8 @@
 import { useMemo, useState } from 'react';
+import { SelectionState } from '../utils/types';
 
 export const useSelection = () => {
-  const [selection, setSelection] = useState({
+  const [selection, setSelection] = useState<SelectionState>({
     coffe1: {
       value: '',
       selected: false,
