@@ -11,6 +11,7 @@ import {
   uk,
 } from '../assets';
 import { CoffeSection, HomeCoffes, MenuLinks, StepsWorks } from './types';
+import { SelectionState } from './types';
 
 export const menuLinks: MenuLinks[] = [
   {
@@ -168,115 +169,179 @@ export const headQuartrsInfo = [
   },
 ];
 
-export const coffeSections: CoffeSection[] = [
-  {
-    id: 'coffe1',
-    section: 'Preferences',
-    question: 'How do you drink your coffee?',
-    options: [
+export const coffeSections = (grSelection: SelectionState) => {
+  const { coffe3 } = grSelection;
+  let price = {
+    week: 0,
+    weeks: 0,
+    month: 0,
+    weekPrice: 0,
+    weeksPrice: 0,
+  };
+  const coffergr = {
+    one: '250g',
+    two: '500g',
+    three: '1000g',
+  };
+
+  switch (coffe3?.value) {
+    case coffergr.one:
+      price = {
+        month: 12.0,
+        week: 7.2,
+        weeks: 9.6,
+        weekPrice: 7.2 * 4,
+        weeksPrice: 9.6 * 2,
+      };
+      break;
+    case coffergr.two:
+      price = {
+        week: 13.0,
+        weeks: 17.5,
+        month: 22.0,
+        weekPrice: 13 * 4,
+        weeksPrice: 17 * 2,
+      };
+      break;
+    case coffergr.three:
+      price = {
+        week: 22.0,
+        weeks: 32.0,
+        month: 42.0,
+        weekPrice: 22 * 4,
+        weeksPrice: 32.0 * 2,
+      };
+      break;
+
+    default:
+      break;
+  }
+
+  return {
+    price: price,
+    coffeSections: [
       {
-        id: 'options1',
-        title: 'Capsule',
-        desc: 'Compatible with Nespresso systems and similar brewers',
+        id: 'coffe1',
+        section: 'Preferences',
+        question: 'How do you drink your coffee?',
+        options: [
+          {
+            id: 'options1',
+            title: 'Capsule',
+            desc: 'Compatible with Nespresso systems and similar brewers',
+          },
+          {
+            id: 'options2',
+            title: 'Filter',
+            desc: 'For pour over or drip methods like Aeropress, Chemex, and V60',
+          },
+          {
+            id: 'options3',
+            title: 'Espresso',
+            desc: 'Dense and finely ground beans for an intense, flavorful experience',
+          },
+        ],
       },
       {
-        id: 'options2',
-        title: 'Filter',
-        desc: 'For pour over or drip methods like Aeropress, Chemex, and V60',
+        id: 'coffe2',
+        section: 'Bean Type',
+        question: 'What type of coffee?',
+        options: [
+          {
+            id: 'options4',
+            title: 'Single Origin',
+            desc: 'Distinct, high quality coffee from a specific family-owned farm',
+          },
+          {
+            id: 'options5',
+            title: 'Decaf',
+            desc: 'Just like regular coffee, except the caffeine has been removed',
+          },
+          {
+            id: 'options6',
+            title: 'Blended',
+            desc: 'Combination of two or three dark roasted beans of organic coffees',
+          },
+        ],
       },
       {
-        id: 'options3',
-        title: 'Espresso',
-        desc: 'Dense and finely ground beans for an intense, flavorful experience',
+        id: 'coffe3',
+        section: 'Quantity',
+        question: 'How much would you like?',
+        options: [
+          {
+            id: 'options7',
+            title: '250g',
+            desc: 'Perfect for the solo drinker. Yields about 12 delicious cups.',
+          },
+          {
+            id: 'options8',
+            title: '500g',
+            desc: 'Perfect option for a couple. Yields about 40 delectable cups.',
+          },
+          {
+            id: 'options9',
+            title: '1000g',
+            desc: 'Perfect for offices and events. Yields about 90 delightful cups.',
+          },
+        ],
+      },
+      {
+        id: 'coffe4',
+        section: 'Grind Option',
+        question: 'Want us to grind them?',
+        options: [
+          {
+            id: 'options10',
+            title: 'Wholebean',
+            desc: 'Best choice if you cherish the full sensory experience',
+          },
+          {
+            id: 'options11',
+            title: 'Filter',
+            desc: 'For drip or pour-over coffee methods such as V60 or Aeropress',
+          },
+          {
+            id: 'options12',
+            title: 'Cafetiére',
+            desc: 'Course ground beans specially suited for french press coffee',
+          },
+        ],
+      },
+      {
+        id: 'coffe5',
+        section: 'Deliveries',
+        question: 'How often should we deliver?',
+        options: [
+          {
+            id: 'options13',
+            title: 'Every week',
+            desc: `${
+              price.week === 0 ? 'Please Select Quantity' : `$${price.week}`
+            } per shipment. Includes free first-class shipping.`,
+          },
+          {
+            id: 'options14',
+            title: 'Every 2 weeks',
+            desc: `${
+              price.weeks === 0 ? 'Please Select Quantity' : `$${price.weeks}`
+            } per shipment. Includes free priority shipping.`,
+          },
+          {
+            id: 'options15',
+            title: 'Every month',
+            desc: `${
+              price.month === 0 ? 'Please Select Quantity' : `$${price.month}`
+            } per shipment. Includes free priority shipping.`,
+          },
+        ],
       },
     ],
-  },
-  {
-    id: 'coffe2',
-    section: 'Bean Type',
-    question: 'What type of coffee?',
-    options: [
-      {
-        id: 'options4',
-        title: 'Single Origin',
-        desc: 'Distinct, high quality coffee from a specific family-owned farm',
-      },
-      {
-        id: 'options5',
-        title: 'Decaf',
-        desc: 'Just like regular coffee, except the caffeine has been removed',
-      },
-      {
-        id: 'options6',
-        title: 'Blended',
-        desc: 'Combination of two or three dark roasted beans of organic coffees',
-      },
-    ],
-  },
-  {
-    id: 'coffe3',
-    section: 'Quantity',
-    question: 'How much would you like?',
-    options: [
-      {
-        id: 'options7',
-        title: '250g',
-        desc: 'Perfect for the solo drinker. Yields about 12 delicious cups.',
-      },
-      {
-        id: 'options8',
-        title: '500g',
-        desc: 'Perfect option for a couple. Yields about 40 delectable cups.',
-      },
-      {
-        id: 'options9',
-        title: '1000g',
-        desc: 'Perfect for offices and events. Yields about 90 delightful cups.',
-      },
-    ],
-  },
-  {
-    id: 'coffe4',
-    section: 'Grind Option',
-    question: 'Want us to grind them?',
-    options: [
-      {
-        id: 'options10',
-        title: 'Wholebean',
-        desc: 'Best choice if you cherish the full sensory experience',
-      },
-      {
-        id: 'options11',
-        title: 'Filter',
-        desc: 'For drip or pour-over coffee methods such as V60 or Aeropress',
-      },
-      {
-        id: 'options12',
-        title: 'Cafetiére',
-        desc: 'Course ground beans specially suited for french press coffee',
-      },
-    ],
-  },
-  {
-    id: 'coffe5',
-    section: 'Deliveries',
-    question: 'How often should we deliver?',
-    options: [
-      {
-        id: 'options13',
-        title: 'Every week',
-        desc: '$7.20 per shipment. Includes free first-class shipping.',
-      },
-      {
-        id: 'options14',
-        title: 'Every 2 weeks',
-        desc: '$9.60 per shipment. Includes free priority shipping.',
-      },
-      {
-        id: 'options15',
-        title: 'Every month',
-        desc: '$12.00 per shipment. Includes free priority shipping.',
-      },
-    ],
-  },
-];
+  };
+};
+
+export const deliverOptions = {
+  week: 'Every week',
+  weeks: 'Every 2 weeks',
+  mont: 'Every month',
+};

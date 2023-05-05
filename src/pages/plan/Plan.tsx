@@ -1,17 +1,19 @@
 import { Button, ImgCard, Steps } from '../../components';
-import { coffeSections } from '../../utils/data';
 import { Question } from '../../components/question/Question';
-import { useContext } from 'react';
+import { useContext, useMemo } from 'react';
 import { SelectionContext } from '../../context/selectionContext';
 import { ModalContext } from '../../context/modalContext';
 import './Plan.scss';
 
 export const Plan = () => {
-  const { selection, setSelection, sectionDisable, textMessage } =
-    useContext(SelectionContext);
-
-    const {handleShow} = useContext(ModalContext)
-
+  const {
+    selection,
+    setSelection,
+    sectionDisable,
+    textMessage,
+    coffeSectionsArray,
+  } = useContext(SelectionContext);
+  const { handleShow } = useContext(ModalContext);
   return (
     <div className="plan">
       <ImgCard
@@ -26,7 +28,7 @@ export const Plan = () => {
       </section>
       <section className="questions">
         <div className="questions__sections">
-          {coffeSections.map((item, i) => (
+          {coffeSectionsArray.coffeSections.map((item, i) => (
             <div className="section__container" key={Math.random()}>
               <span
                 className={`section__number ${
@@ -42,6 +44,7 @@ export const Plan = () => {
                 }`}
                 href={`#${item.id}`}
                 onClick={() =>
+                  //@ts-ignore
                   setSelection((prevState) => ({
                     ...prevState,
                     [item.id]: {
@@ -58,7 +61,7 @@ export const Plan = () => {
           ))}
         </div>
         <div className="questions__drops">
-          {coffeSections.map((item) => (
+          {coffeSectionsArray.coffeSections.map((item) => (
             <Question
               item={item}
               key={item.id}

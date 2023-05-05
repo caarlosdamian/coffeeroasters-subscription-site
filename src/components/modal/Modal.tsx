@@ -1,16 +1,29 @@
-import React, { useContext } from 'react';
+import React, { useContext, useMemo } from 'react';
 import './Modal.scss';
 import { useSelection } from '../../hooks/useSelection';
 import { SelectionContext } from '../../context/selectionContext';
 import { Button } from '../button/Button';
 import { ModalContext } from '../../context/modalContext';
+import { deliverOptions } from '../../utils/data';
 
 export const Modal = () => {
-  const { selection, setSelection, sectionDisable, textMessage } =
-    useContext(SelectionContext);
+  const {
+    textMessage,
+    coffeSectionsArray: { price },
+    selection,
+  } = useContext(SelectionContext);
 
-    const {handleShow} = useContext(ModalContext)
-
+  const { handleShow } = useContext(ModalContext);
+  const { coffe5 } = selection;
+  const priceByMonth = useMemo(
+    () =>
+      coffe5.value === deliverOptions.mont
+        ? price.month
+        : coffe5.value === deliverOptions.weeks
+        ? price.weeksPrice
+        : price.weekPrice,
+    [selection]
+  );
 
   return (
     <div className="modal">
@@ -33,7 +46,7 @@ export const Modal = () => {
           </div>
           <div className="button__section">
             <span className="checkout__desc">{'$14.00 '}</span>
-            <Button label="Checkout - $14.00 / mo" />
+            <Button label={`Checkout - $${priceByMonth} / mo`} />
           </div>
         </div>
       </div>
