@@ -41,11 +41,11 @@ export const Modal = () => {
             <span className="description">
               Is this correct? You can proceed to checkout or go back to plan
               selection if something is off. Subscription discount codes can
-              also be redeemed at the checkout.{' '}
+              also be redeemed at the checkout.
             </span>
           </div>
           <div className="button__section">
-            <span className="checkout__desc">{`${priceByMonth} / mo`}</span>
+            <span className="checkout__desc">{`$${priceByMonth.toFixed(2)} / mo`}</span>
             <Button
               id="button--mobile"
               label={`Checkout - $${priceByMonth} / mo`}

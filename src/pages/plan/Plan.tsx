@@ -1,6 +1,6 @@
 import { Button, ImgCard, Steps } from '../../components';
 import { Question } from '../../components/question/Question';
-import { useContext, useMemo } from 'react';
+import { useCallback, useContext, useMemo } from 'react';
 import { SelectionContext } from '../../context/selectionContext';
 import { ModalContext } from '../../context/modalContext';
 import './Plan.scss';
@@ -14,6 +14,19 @@ export const Plan = () => {
     coffeSectionsArray,
   } = useContext(SelectionContext);
   const { handleShow } = useContext(ModalContext);
+  const arrayOfObj = Object.entries(selection).map((e) => ({ [e[0]]: e[1] }));
+  const keys = Object.keys(selection);
+  const arrayOfSelections = arrayOfObj.map((item, i) => item[keys[i]]);
+  const buttonDisable = useMemo(() => {
+    let selectionsFilter = sectionDisable
+      ? arrayOfSelections.filter((item) => item.value !== 'Capsule')
+      : arrayOfSelections;
+
+    return sectionDisable
+      ? selectionsFilter.filter((item) => item.value !== '').length !== 3
+      : selectionsFilter.filter((item) => item.value !== '').length !== 5;
+  }, [arrayOfSelections, sectionDisable]);
+
   return (
     <div className="plan">
       <ImgCard
@@ -80,7 +93,11 @@ export const Plan = () => {
         ></div>
       </section>
       <section className="summary__button">
-        <Button label="Create my plan!" onClick={handleShow} />
+        <Button
+          label="Create my plan!"
+          disabled={buttonDisable}
+          onClick={handleShow}
+        />
       </section>
     </div>
   );

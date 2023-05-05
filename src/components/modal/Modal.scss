@@ -45,6 +45,11 @@
           tokens.$line-height-32,
           tokens.$font-family-fraunces
         );
+
+        @include tokens.for-size(tablet-portrait-up) {
+          font-size: 40px;
+          line-height: 48px;
+        }
       }
     }
     &--down {
@@ -54,9 +59,10 @@
       flex-direction: column;
       gap: 24px;
       @include tokens.for-size(tablet-portrait-up) {
-       padding: 58px;
-       gap: 48px;
-       flex: 2;
+        padding: 58px;
+        flex: 2;
+        gap: 48px;
+        align-items: center;
       }
 
       .modal__description--container {
@@ -65,7 +71,7 @@
         flex-direction: column;
         @include tokens.for-size(tablet-portrait-up) {
           gap: 8px;
-         }
+        }
         .summary__container {
           .summary__message {
             @include tokens.font(
@@ -92,6 +98,11 @@
           text-align: justify;
           mix-blend-mode: normal;
           opacity: 0.8;
+
+          @include tokens.for-size(tablet-portrait-up) {
+            font-size: 16px;
+            line-height: 26px;
+          }
         }
       }
 
@@ -100,6 +111,9 @@
         align-items: center;
         gap: 12px;
 
+        @include tokens.for-size(tablet-portrait-up) {
+          justify-self: flex-end;
+        }
         .checkout__desc {
           display: none;
           @include tokens.font(
