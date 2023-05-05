@@ -6,6 +6,7 @@ import './Question.scss'
 interface QuestionProps {
   item: CoffeSection;
   setSelection: React.Dispatch<any>;
+  //@ts-ignore
   selection: { [key: string]: { value: String; selected: boolean } };
   disable: boolean;
 }

@@ -14,6 +14,7 @@ interface SelectionContextType {
 
 export const SelectionContext = createContext<SelectionContextType>({
   sectionDisable: false,
+  //@ts-ignore
   selection: [],
   setSelection: () => {},
   textMessage: { __html: '' },

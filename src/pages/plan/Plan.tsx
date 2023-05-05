@@ -1,6 +1,6 @@
 import { Button, ImgCard, Steps } from '../../components';
 import { Question } from '../../components/question/Question';
-import { useCallback, useContext, useMemo } from 'react';
+import { useContext, useMemo } from 'react';
 import { SelectionContext } from '../../context/selectionContext';
 import { ModalContext } from '../../context/modalContext';
 import './Plan.scss';
@@ -41,7 +41,7 @@ export const Plan = () => {
       </section>
       <section className="questions">
         <div className="questions__sections">
-          {coffeSectionsArray.coffeSections.map((item, i) => (
+          {coffeSectionsArray.coffeSections.map((item: any, i: number) => (
             <div className="section__container" key={Math.random()}>
               <span
                 className={`section__number ${
@@ -74,11 +74,12 @@ export const Plan = () => {
           ))}
         </div>
         <div className="questions__drops">
-          {coffeSectionsArray.coffeSections.map((item) => (
+          {coffeSectionsArray.coffeSections.map((item: any) => (
             <Question
               item={item}
               key={item.id}
               setSelection={setSelection}
+              //@ts-ignore
               selection={selection}
               disable={sectionDisable && item.id === 'coffe4'}
             />
