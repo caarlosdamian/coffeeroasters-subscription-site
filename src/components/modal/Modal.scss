@@ -23,6 +23,13 @@
     right: 0;
     margin: auto;
     z-index: 9999;
+    display: flex;
+    flex-direction: column;
+
+    @include tokens.for-size(tablet-portrait-up) {
+      width: 540px;
+      height: 597px;
+    }
 
     &--upper {
       height: 88px;
@@ -46,11 +53,19 @@
       align-items: center;
       flex-direction: column;
       gap: 24px;
+      @include tokens.for-size(tablet-portrait-up) {
+       padding: 58px;
+       gap: 48px;
+       flex: 2;
+      }
 
       .modal__description--container {
         display: flex;
         align-items: center;
         flex-direction: column;
+        @include tokens.for-size(tablet-portrait-up) {
+          gap: 8px;
+         }
         .summary__container {
           .summary__message {
             @include tokens.font(
@@ -94,8 +109,24 @@
             tokens.$font-family-fraunces
           );
           color: #333d4b;
+          @include tokens.for-size(tablet-portrait-up) {
+            display: flex;
+          }
         }
       }
     }
+  }
+}
+
+#button--tablet {
+  display: none;
+}
+
+@include tokens.for-size(tablet-portrait-up) {
+  #button--mobile {
+    display: none;
+  }
+  #button--tablet {
+    display: block;
   }
 }

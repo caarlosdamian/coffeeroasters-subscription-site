@@ -45,8 +45,12 @@ export const Modal = () => {
             </span>
           </div>
           <div className="button__section">
-            <span className="checkout__desc">{'$14.00 '}</span>
-            <Button label={`Checkout - $${priceByMonth} / mo`} />
+            <span className="checkout__desc">{`${priceByMonth} / mo`}</span>
+            <Button
+              id="button--mobile"
+              label={`Checkout - $${priceByMonth} / mo`}
+            />
+            <Button id="button--tablet" label="Checkout" />
           </div>
         </div>
       </div>
