@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Fade } from 'react-awesome-reveal';
 import { Button, Steps } from '../../components';
 import { featureInfo, homeCoffes } from '../../utils/data';
@@ -7,6 +7,11 @@ import { Link } from 'react-router-dom';
 import './Home.scss';
 
 export const Home = () => {
+
+  useEffect(() => {
+   window.scrollTo(0,0)
+  }, [])
+  
   return (
     <div className="home">
       <div className="hero">

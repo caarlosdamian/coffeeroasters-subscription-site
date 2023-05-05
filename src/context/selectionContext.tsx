@@ -9,18 +9,25 @@ interface SelectionContextType {
   setSelection: (state: SelectionState) => void;
   textMessage: { __html: string };
   coffeSectionsArray: any;
+  handleInitstate: any;
 }
 
 export const SelectionContext = createContext<SelectionContextType>({
   sectionDisable: false,
-  selection: {},
+  selection: [],
   setSelection: () => {},
   textMessage: { __html: '' },
   coffeSectionsArray: () => {},
+  handleInitstate: () => {},
 });
 export const SelectionContextProvider = ({ children }: any) => {
-  const { sectionDisable, selection, setSelection, textMessage } =
-    useSelection();
+  const {
+    sectionDisable,
+    selection,
+    setSelection,
+    textMessage,
+    handleInitstate,
+  } = useSelection();
 
   const coffeSectionsArray = useMemo(
     () => coffeSections(selection),
@@ -35,6 +42,7 @@ export const SelectionContextProvider = ({ children }: any) => {
         setSelection,
         textMessage,
         coffeSectionsArray,
+        handleInitstate,
       }}
     >
       {children}

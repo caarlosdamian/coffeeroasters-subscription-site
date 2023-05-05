@@ -5,12 +5,14 @@ import { SelectionContext } from '../../context/selectionContext';
 import { Button } from '../button/Button';
 import { ModalContext } from '../../context/modalContext';
 import { deliverOptions } from '../../utils/data';
+import { Link } from 'react-router-dom';
 
 export const Modal = () => {
   const {
     textMessage,
     coffeSectionsArray: { price },
     selection,
+    handleInitstate
   } = useContext(SelectionContext);
 
   const { handleShow } = useContext(ModalContext);
@@ -25,6 +27,10 @@ export const Modal = () => {
     [selection]
   );
 
+  const handleSelection = () =>{
+    handleInitstate()
+    handleShow()
+  }
   return (
     <div className="modal">
       <div className="modal__overlay" onClick={handleShow}></div>
@@ -45,12 +51,21 @@ export const Modal = () => {
             </span>
           </div>
           <div className="button__section">
-            <span className="checkout__desc">{`$${priceByMonth.toFixed(2)} / mo`}</span>
-            <Button
-              id="button--mobile"
-              label={`Checkout - $${priceByMonth} / mo`}
-            />
-            <Button id="button--tablet" label="Checkout" />
+            <span className="checkout__desc">{`$${priceByMonth.toFixed(
+              2
+            )} / mo`}</span>
+            <Link to="/" className='links'>
+              <Button
+                id="button--mobile"
+                label={`Checkout - $${priceByMonth} / mo`}
+                onClick={handleSelection}
+              />
+            </Link>
+            <Link to="/" className='links'> 
+              <Button id="button--tablet" label="Checkout"
+               onClick={handleSelection}
+              />
+            </Link>
           </div>
         </div>
       </div>

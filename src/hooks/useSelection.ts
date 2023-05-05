@@ -2,7 +2,7 @@ import { useMemo, useState } from 'react';
 import { SelectionState } from '../utils/types';
 
 export const useSelection = () => {
-  const [selection, setSelection] = useState<SelectionState>({
+  const initialState = {
     coffe1: {
       value: '',
       selected: false,
@@ -23,7 +23,9 @@ export const useSelection = () => {
       value: '',
       selected: false,
     },
-  });
+  };
+
+  const [selection, setSelection] = useState<SelectionState>(initialState);
 
   const sectionDisable = useMemo(
     () => selection.coffe1.value === 'Capsule',
@@ -54,10 +56,15 @@ export const useSelection = () => {
     [selection]
   );
 
+  const handleInitstate = () => {
+    setSelection(initialState);
+  };
+
   return {
     selection,
     setSelection,
     sectionDisable,
     textMessage: { __html: textMessage },
+    handleInitstate
   };
 };
