@@ -1,2 +1,2 @@
 # coffeeroasters-subscription-site
-alpha
+beta
